@@ -1,0 +1,24 @@
+FruitFly public experiment snapshot
+
+Dajing Middle School, China — Hite Spive
+Source: https://superspl.at/scene/181e59b9
+Author: https://superspl.at/user/hite404
+License: Creative Commons Attribution 4.0
+https://creativecommons.org/licenses/by/4.0/
+Changes: sampled 1.5-million-Gaussian SH0 PLY preview; optional full-density
+9-million-Gaussian 32-byte SPLAT conversion split into three equal chunks.
+These transformations are previews, not geometric calibration or training.
+
+Flight Hall — TUM LSY / amacati
+https://huggingface.co/datasets/amacati/splats
+Source LICENSE: All Rights Reserved. The original PLY is not copied into this
+site: interactive loading points to the author's publicly hosted source.
+If that source is unavailable, the viewer provides the source-page link.
+
+Observer follow/overview videos and stills are MuJoCo renderings of the
+navigation proxy environment and Crazyflie model, not Flight Hall 3DGS RGB.
+Menagerie Crazyflie model: MuJoCo Menagerie / Bitcraze Crazyflie 2, MIT (copyright 2024 whoenig)
+https://github.com/google-deepmind/mujoco_menagerie/tree/main/bitcraze_crazyflie_2
+
+Three.js — MIT: see three-LICENSE.txt.
+GaussianSplats3D — MIT: see GaussianSplats3D-LICENSE.txt.

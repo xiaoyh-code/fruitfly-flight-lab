@@ -1,0 +1,60 @@
+name: Publish static flight experiments
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - '.github/workflows/pages.yml'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout published files
+        uses: actions/checkout@v6
+      - name: Verify static bundle
+        run: |
+          python3 - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root = Path('site').resolve()
+          manifest = json.loads((root / 'publication-manifest.json').read_text())
+          expected = {item['path'] for item in manifest['files']} | {'publication-manifest.json'}
+          actual = {str(path.relative_to(root)) for path in root.rglob('*') if path.is_file()}
+          if actual != expected:
+              raise SystemExit('Static file whitelist does not match the exported manifest')
+          for item in manifest['files']:
+              path = root / item['path']
+              if path.is_symlink() or not path.resolve().is_relative_to(root):
+                  raise SystemExit('Unsafe file path')
+              if path.stat().st_size != item['bytes']:
+                  raise SystemExit(f"Size mismatch: {item['path']}")
+              if hashlib.sha256(path.read_bytes()).hexdigest() != item['sha256']:
+                  raise SystemExit(f"Hash mismatch: {item['path']}")
+          if sum((root / name).stat().st_size for name in actual) >= 1_000_000_000:
+              raise SystemExit('Site exceeds 1 GB')
+          print(f'Verified {len(actual)} static files')
+          PY
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload only the static site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

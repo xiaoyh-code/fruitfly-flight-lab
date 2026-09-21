@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "scenes": [
+    {
+      "id": "hall",
+      "label": "原有工廠 / Flight Hall",
+      "splats": 98372,
+      "bytes": 6689711,
+      "caption": "TUM 飛行實驗室 · 靜態 3DGS · 已保存單障礙導航測試",
+      "note": "互動場景直接由作者 Hugging Face 來源載入；本站未重新分發原始工廠 PLY。並無完整工廠碰撞地圖。",
+      "asset": "https://huggingface.co/datasets/amacati/splats/resolve/main/robot_hall.ply",
+      "source_url": "https://huggingface.co/datasets/amacati/splats",
+      "attribution": "TUM LSY / amacati",
+      "licence": "作者來源 · All Rights Reserved",
+      "camera_up": [
+        0,
+        0,
+        1
+      ],
+      "views": [
+        {
+          "label": "中央視角",
+          "position": [
+            0,
+            0,
+            1.5
+          ],
+          "target": [
+            10,
+            0,
+            1.4
+          ]
+        },
+        {
+          "label": "全景俯視",
+          "position": [
+            15,
+            -13,
+            13
+          ],
+          "target": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "label": "測試障礙",
+          "position": [
+            13.55,
+            -3.15,
+            1.2
+          ],
+          "target": [
+            15.15,
+            -2.95,
+            1
+          ]
+        },
+        {
+          "label": "障礙側面",
+          "position": [
+            15.15,
+            -4.45,
+            1.2
+          ],
+          "target": [
+            15.15,
+            -2.95,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dajing",
+      "label": "Dajing Middle School",
+      "splats": 1500000,
+      "bytes": 84000515,
+      "asset": "assets/dajing-preview.ply",
+      "variants": [
+        {
+          "id": "preview",
+          "label": "流暢預覽 · 150 萬粒 / 84 MB",
+          "splats": 1500000,
+          "bytes": 84000515,
+          "assets": [
+            "assets/dajing-preview.ply"
+          ]
+        },
+        {
+          "id": "full",
+          "label": "完整密度 · 900 萬粒 / 288 MB（建議電腦）",
+          "splats": 9000000,
+          "bytes": 288000000,
+          "assets": [
+            "assets/dajing-full-1.splat",
+            "assets/dajing-full-2.splat",
+            "assets/dajing-full-3.splat"
+          ]
+        }
+      ],
+      "caption": "Hite Spive · CC BY 4.0 · 校園場景預覽",
+      "note": "比例及碰撞幾何尚未校準，未作訓練。預設只載入 84 MB 預覽；可手動選完整密度版本。抽樣及格式轉換由本項目製作。",
+      "source_url": "https://superspl.at/scene/181e59b9",
+      "attribution": "Hite Spive",
+      "licence": "CC BY 4.0",
+      "camera_up": [
+        0,
+        -1,
+        0
+      ],
+      "views": [
+        {
+          "label": "校園全景",
+          "position": [
+            7,
+            -7,
+            10
+          ],
+          "target": [
+            0.7,
+            -1.35,
+            -0.66
+          ]
+        },
+        {
+          "label": "另一方向",
+          "position": [
+            -8,
+            -7,
+            -10
+          ],
+          "target": [
+            0.7,
+            -1.35,
+            -0.66
+          ]
+        },
+        {
+          "label": "場地近景",
+          "position": [
+            7,
+            -3.5,
+            8
+          ],
+          "target": [
+            2,
+            -1.1,
+            -1
+          ]
+        },
+        {
+          "label": "校園俯視",
+          "position": [
+            0.7,
+            -18,
+            -0.6
+          ],
+          "target": [
+            0.7,
+            -1.35,
+            -0.66
+          ]
+        }
+      ]
+    }
+  ]
+}
