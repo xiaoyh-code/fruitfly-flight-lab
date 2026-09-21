@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-21T07:12:38.522232+00:00",
+  "generated_at": "2026-09-21T07:17:20.792198+00:00",
   "run_id": "hall-20260921-fast",
   "kind": "saved_read_only_experiments",
   "contains_training_controls": false,
   "hall_asset_rehosted": false,
   "school_full_density_included": true,
-  "bytes_excluding_this_manifest": 379591645,
+  "bytes_excluding_this_manifest": 379594193,
   "files": [
     {
       "path": ".nojekyll",
@@ -110,8 +110,8 @@
     },
     {
       "path": "scene.html",
-      "bytes": 7612,
-      "sha256": "b1a74c3b7ca575f4297469615e8a2d940ca433e307f29f03740ddef0996e0868"
+      "bytes": 10160,
+      "sha256": "6be1d0dddd3c2715ac013150aa21490561de5f98e474e479f7b9caba9f551ad5"
     }
   ]
 }

@@ -9,12 +9,46 @@
 <script type="module">
 import * as GS from 'gaussian';
 const el=id=>document.getElementById(id),status=el('status');
+// Download into a fixed buffer sized from our manifest, not an HTTP encoding's
+// Content-Length. Avoid the SDK's per-Gaussian JS arrays and thenable wrapper.
+async function packedChunk(path, expectedBytes, index, total) {
+ for(let attempt=1;attempt<=3;attempt++) {
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),180000);
+  try {
+   const response=await fetch(path,{signal:controller.signal,cache:attempt===1?'default':'reload'});
+   if(!response.ok)throw Error(`下載第 ${index+1} 份失敗（HTTP ${response.status}）`);
+   const bytes=new Uint8Array(expectedBytes),reader=response.body.getReader();let offset=0;
+   while(true){const {value,done}=await reader.read();if(done)break;if(offset+value.byteLength>expectedBytes)throw Error('場景檔案大小不符');bytes.set(value,offset);offset+=value.byteLength;status.textContent=`下載完整場景 ${index+1}/${total} · ${((index*expectedBytes+offset)/1e6).toFixed(1)} / ${(expectedBytes*total/1e6).toFixed(0)} MB`;}
+   if(offset!==expectedBytes)throw Error(`第 ${index+1} 份下載未完整（${offset}/${expectedBytes} bytes）`);
+   return bytes.buffer;
+  }catch(error){controller.abort();if(attempt===3)throw error;status.textContent=`第 ${index+1} 份下載重試 ${attempt}/2…`;}
+  finally{clearTimeout(timer);}
+ }
+}
+async function unpackChunk(path, expectedBytes, index, total) {
+ const data=await packedChunk(path,expectedBytes,index,total),count=data.byteLength/32;
+ if(!Number.isInteger(count))throw Error('場景記錄長度不符');
+ const {splatBuffer,splatBufferDataOffsetBytes}=GS.SplatBuffer.preallocateUncompressed(count,0);
+ for(let first=0;first<count;first+=250000){
+  GS.SplatParser.parseToUncompressedSplatBufferSection(first,Math.min(count,first+250000)-1,data,0,splatBuffer.bufferData,splatBufferDataOffsetBytes);
+  status.textContent=`整理完整場景 ${index+1}/${total} · ${Math.min(count,first+250000).toLocaleString()} 粒`;
+  await new Promise(resolve=>setTimeout(resolve,0));
+ }
+ return splatBuffer;
+}
+async function fullScene(viewer, variant) {
+ const buffers=[],size=variant.bytes/variant.assets.length;
+ for(let i=0;i<variant.assets.length;i++)buffers.push(await unpackChunk(variant.assets[i],size,i,variant.assets.length));
+ status.textContent='建立完整 900 萬粒場景…';
+ await viewer.addSplatBuffers(buffers,buffers.map(()=>({splatAlphaRemovalThreshold:0})),true,true,true,false,false);
+}
+
 const params=new URLSearchParams(location.search),sceneId=params.get('scene')==='dajing'?'dajing':'hall';el('scene-select').value=sceneId;el('scene-select').onchange=()=>{const url=new URL(location.href);url.search='';url.searchParams.set('scene',el('scene-select').value);location.href=url.href};el('fullscreen').onclick=()=>document.documentElement.requestFullscreen?.().catch(()=>{status.textContent='全螢幕暫時不可用'});
 try{const response=await fetch('data/scenes.json');if(!response.ok)throw Error('無法讀取場景資料');const entries=(await response.json()).scenes,entry=entries.find(s=>s.id===sceneId);if(!entry)throw Error('未找到場景');el('title').textContent=entry.label;el('subtitle').textContent=entry.caption;el('notice').textContent=entry.note;el('size').textContent=`${entry.splats.toLocaleString()} 粒 Gaussian · ${(entry.bytes/1e6).toFixed(2)} MB`;el('source').textContent=entry.attribution;el('source').href=entry.source_url;el('license').textContent=entry.licence;el('fallback-link').href=entry.source_url;
 const variant=entry.variants?.find(v=>v.id===params.get('quality'))||entry.variants?.[0];if(variant){el('quality-label').hidden=false;el('quality').replaceChildren(...entry.variants.map(v=>new Option(v.label,v.id)));el('quality').value=variant.id;el('quality').onchange=()=>{const next=new URL(location.href);next.searchParams.set('quality',el('quality').value);location.href=next.href};el('size').textContent=`${variant.splats.toLocaleString()} 粒 Gaussian · ${(variant.bytes/1e6).toFixed(2)} MB`;if(variant.id==='full')el('notice').textContent='完整密度 900 萬粒 · 288 MB · 建議電腦及充足記憶體。SH0 顏色／旋轉已量化；比例及碰撞未校準，尚未訓練。'}
 const views=entry.views,requested=Number(params.get('view')||0),initial=Number.isInteger(requested)&&requested>=0&&requested<views.length?requested:0;
 const buttons=views.map((v,i)=>{const b=document.createElement('button');b.textContent=v.label;b.dataset.view=i;b.disabled=true;return b});el('views').replaceChildren(...buttons);status.textContent=`正在下載及處理 ${((variant?.bytes||entry.bytes)/1e6).toFixed(2)} MB 場景…`;
 const viewer=new GS.Viewer({rootElement:el('scene'),cameraUp:entry.camera_up,initialCameraPosition:views[initial].position,initialCameraLookAt:views[initial].target,sharedMemoryForWorkers:false,gpuAcceleratedSort:false,integerBasedSort:false,sphericalHarmonicsDegree:0,antialiased:true,ignoreDevicePixelRatio:true,renderMode:GS.RenderMode.OnChange});
-if(variant?.assets.length>1){await viewer.addSplatScenes(variant.assets.map(path=>({path,splatAlphaRemovalThreshold:0})),true)}else{await viewer.addSplatScene(variant?.assets[0]||entry.asset,{splatAlphaRemovalThreshold:1,showLoadingUI:true,progressiveLoad:false})};if(sceneId==='dajing'){viewer.camera.near=.001;viewer.camera.updateProjectionMatrix()}viewer.start();status.textContent='場景已載入 · 可旋轉、平移及縮放';buttons.forEach((b,i)=>{b.disabled=false;b.onclick=()=>{viewer.camera.position.set(...views[i].position);viewer.camera.up.set(...entry.camera_up);viewer.camera.lookAt(...views[i].target);viewer.controls.target.set(...views[i].target);viewer.controls.update()}});setInterval(()=>{const p=viewer.camera.position;el('coordinates').textContent=`相機 xyz: ${p.x.toFixed(2)}, ${p.y.toFixed(2)}, ${p.z.toFixed(2)}`},500);
-}catch(error){status.className='error';status.textContent=`載入失敗：${error.message}。可返回首頁睇影片，或開啟作者原始來源。`;el('fallback').className='visible';console.error(error)}
+if(variant?.assets.length>1){await fullScene(viewer,variant)}else{await viewer.addSplatScene(variant?.assets[0]||entry.asset,{splatAlphaRemovalThreshold:1,showLoadingUI:true,progressiveLoad:false}).promise};if(sceneId==='dajing'){viewer.camera.near=.001;viewer.camera.updateProjectionMatrix()}viewer.start();status.textContent='場景已載入 · 可旋轉、平移及縮放';buttons.forEach((b,i)=>{b.disabled=false;b.onclick=()=>{viewer.camera.position.set(...views[i].position);viewer.camera.up.set(...entry.camera_up);viewer.camera.lookAt(...views[i].target);viewer.controls.target.set(...views[i].target);viewer.controls.update()}});setInterval(()=>{const p=viewer.camera.position;el('coordinates').textContent=`相機 xyz: ${p.x.toFixed(2)}, ${p.y.toFixed(2)}, ${p.z.toFixed(2)}`},500);
+}catch(error){status.className='error';status.textContent=`載入失敗：${error.message}。可返回首頁睇影片，或開啟作者原始來源。`;el('fallback').className='visible';if(sceneId==='dajing'){const link=document.createElement('a');link.href='scene.html?scene=dajing';link.textContent='　切換輕量預覽 ↗';el('fallback').append(link)}console.error(error)}
 </script></body></html>
