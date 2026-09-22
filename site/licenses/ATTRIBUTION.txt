@@ -19,6 +19,9 @@ Observer follow/overview videos and stills are MuJoCo renderings of the
 navigation proxy environment and Crazyflie model, not Flight Hall 3DGS RGB.
 Menagerie Crazyflie model: MuJoCo Menagerie / Bitcraze Crazyflie 2, MIT (copyright 2024 whoenig)
 https://github.com/google-deepmind/mujoco_menagerie/tree/main/bitcraze_crazyflie_2
+The interactive scene includes the same seven visual meshes converted from OBJ
+to indexed JSON, without simplification. Original body-frame geometry/normals
+are retained. School placement/display scale is illustrative, not calibrated.
 
 Three.js — MIT: see three-LICENSE.txt.
 GaussianSplats3D — MIT: see GaussianSplats3D-LICENSE.txt.

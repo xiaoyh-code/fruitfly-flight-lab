@@ -8,6 +8,7 @@
 <section class="bottom" aria-label="場景控制"><div class="meta"><b id="size">—</b><br><a id="source" target="_blank" rel="noreferrer">場景來源</a> · <span id="license"></span></div><div id="views" class="controls"></div><div class="help">左鍵／單指拖動旋轉 · 右鍵平移 · 滾輪／雙指縮放<br><span id="coordinates"></span></div></section>
 <script type="module">
 import * as GS from 'gaussian';
+import {addCrazyflie} from './lib/crazyflie-scene.js';
 const el=id=>document.getElementById(id),status=el('status');
 // Download into a fixed buffer sized from our manifest, not an HTTP encoding's
 // Content-Length. Avoid the SDK's per-Gaussian JS arrays and thenable wrapper.
@@ -49,6 +50,9 @@ const variant=entry.variants?.find(v=>v.id===params.get('quality'))||entry.varia
 const views=entry.views,requested=Number(params.get('view')||0),initial=Number.isInteger(requested)&&requested>=0&&requested<views.length?requested:0;
 const buttons=views.map((v,i)=>{const b=document.createElement('button');b.textContent=v.label;b.dataset.view=i;b.disabled=true;return b});el('views').replaceChildren(...buttons);status.textContent=`正在下載及處理 ${((variant?.bytes||entry.bytes)/1e6).toFixed(2)} MB 場景…`;
 const viewer=new GS.Viewer({rootElement:el('scene'),cameraUp:entry.camera_up,initialCameraPosition:views[initial].position,initialCameraLookAt:views[initial].target,sharedMemoryForWorkers:false,gpuAcceleratedSort:false,integerBasedSort:false,sphericalHarmonicsDegree:0,antialiased:true,ignoreDevicePixelRatio:true,renderMode:GS.RenderMode.OnChange});
-if(variant?.assets.length>1){await fullScene(viewer,variant)}else{await viewer.addSplatScene(variant?.assets[0]||entry.asset,{splatAlphaRemovalThreshold:1,showLoadingUI:true,progressiveLoad:false}).promise};if(sceneId==='dajing'){viewer.camera.near=.001;viewer.camera.updateProjectionMatrix()}viewer.start();status.textContent='場景已載入 · 可旋轉、平移及縮放';buttons.forEach((b,i)=>{b.disabled=false;b.onclick=()=>{viewer.camera.position.set(...views[i].position);viewer.camera.up.set(...entry.camera_up);viewer.camera.lookAt(...views[i].target);viewer.controls.target.set(...views[i].target);viewer.controls.update()}});setInterval(()=>{const p=viewer.camera.position;el('coordinates').textContent=`相機 xyz: ${p.x.toFixed(2)}, ${p.y.toFixed(2)}, ${p.z.toFixed(2)}`},500);
+if(variant?.assets.length>1){await fullScene(viewer,variant)}else{await viewer.addSplatScene(variant?.assets[0]||entry.asset,{splatAlphaRemovalThreshold:1,showLoadingUI:true,progressiveLoad:false}).promise};if(sceneId==='dajing'){viewer.camera.near=.001;viewer.camera.updateProjectionMatrix()}viewer.start();status.textContent='場景已載入 · 可旋轉、平移及縮放';
+try { await addCrazyflie({viewer,sceneId,cameraUp:entry.camera_up,focusOnLoad:!params.has('view')});status.textContent='場景及 Crazyflie 已載入 · 可聚焦架機或切換全景'; }
+catch(error){status.textContent='場景已載入；'+error.message;console.error(error)}
+buttons.forEach((b,i)=>{b.disabled=false;b.onclick=()=>{viewer.camera.position.set(...views[i].position);viewer.camera.up.set(...entry.camera_up);viewer.camera.lookAt(...views[i].target);viewer.controls.target.set(...views[i].target);viewer.controls.update()}});setInterval(()=>{const p=viewer.camera.position;el('coordinates').textContent=`相機 xyz: ${p.x.toFixed(2)}, ${p.y.toFixed(2)}, ${p.z.toFixed(2)}`},500);
 }catch(error){status.className='error';status.textContent=`載入失敗：${error.message}。可返回首頁睇影片，或開啟作者原始來源。`;el('fallback').className='visible';if(sceneId==='dajing'){const link=document.createElement('a');link.href='scene.html?scene=dajing';link.textContent='　切換輕量預覽 ↗';el('fallback').append(link)}console.error(error)}
 </script></body></html>

@@ -1,17 +1,22 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-21T07:17:20.792198+00:00",
+  "generated_at": "2026-09-22T00:26:35.220845+00:00",
   "run_id": "hall-20260921-fast",
   "kind": "saved_read_only_experiments",
   "contains_training_controls": false,
   "hall_asset_rehosted": false,
   "school_full_density_included": true,
-  "bytes_excluding_this_manifest": 379594193,
+  "bytes_excluding_this_manifest": 380206477,
   "files": [
     {
       "path": ".nojekyll",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets/crazyflie.json",
+      "bytes": 602530,
+      "sha256": "587874f4b02cd31364cb62a5c2380a17d67ca4ec0a21df360e0e3c11ffa783f9"
     },
     {
       "path": "assets/dajing-full-1.splat",
@@ -54,6 +59,11 @@
       "sha256": "73de09a5d5b7dbd6d97a664e6f65151dd3d0c7191ae57b782da1d7e2ca7b111a"
     },
     {
+      "path": "lib/crazyflie-scene.js",
+      "bytes": 9186,
+      "sha256": "a62d781e03433a03c1384002c7b70d3448f6ac56513ef840d6e8277ae6da1204"
+    },
+    {
       "path": "lib/gaussian-splats-3d.module.js",
       "bytes": 616821,
       "sha256": "f273394134c9174e49bf42bb4ea0945caaad4fdd63023b8996cc6cd248f52a6b"
@@ -65,8 +75,8 @@
     },
     {
       "path": "licenses/ATTRIBUTION.txt",
-      "bytes": 1215,
-      "sha256": "5c58046799b986b4f9c662656bb9453343b8565e72ed7e6200e0bc8b6f659bde"
+      "bytes": 1450,
+      "sha256": "a1f3bde089d1f5b1c5271ffd3b7a70a6de4481ebf2fd93315c5c5dabb4b1b0cc"
     },
     {
       "path": "licenses/Crazyflie-LICENSE.txt",
@@ -110,8 +120,8 @@
     },
     {
       "path": "scene.html",
-      "bytes": 10160,
-      "sha256": "6be1d0dddd3c2715ac013150aa21490561de5f98e474e479f7b9caba9f551ad5"
+      "bytes": 10493,
+      "sha256": "867391d60fc94ed10f63c5b9d85809da2fbdcdeb17d5a8eca6a7c89d5ed1ae89"
     }
   ]
 }
