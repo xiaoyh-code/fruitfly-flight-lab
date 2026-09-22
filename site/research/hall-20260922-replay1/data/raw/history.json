@@ -1,0 +1,132 @@
+[
+  {
+    "task": "hall_avoidance",
+    "phase": "validation-source",
+    "samples": 0,
+    "success_rate": 1.0,
+    "collision_rate": 0.0,
+    "episodes": 8
+  },
+  {
+    "task": "hall_avoidance",
+    "phase": "collection",
+    "iteration": 0,
+    "seeds": [
+      2000000,
+      2000001,
+      2000002,
+      2000003,
+      2000004,
+      2000005,
+      2000006,
+      2000007,
+      2000008,
+      2000009,
+      2000010,
+      2000011,
+      2000012,
+      2000013,
+      2000014,
+      2000015,
+      2000016,
+      2000017,
+      2000018,
+      2000019,
+      2000020,
+      2000021,
+      2000022,
+      2000023,
+      2000024,
+      2000025,
+      2000026,
+      2000027,
+      2000028,
+      2000029,
+      2000030,
+      2000031
+    ],
+    "samples": 1600,
+    "completed_episodes": 31,
+    "rollout_successes": 31,
+    "rollout_collisions": 0,
+    "teacher_mix": 1.0,
+    "action_noise_std": 0.035,
+    "labels": "Privileged waypoint teacher; absent from policy observations"
+  },
+  {
+    "task": "hall_avoidance",
+    "phase": "fit",
+    "iteration": 0,
+    "samples": 1600,
+    "loss": 0.009036606177687645
+  },
+  {
+    "task": "hall_avoidance",
+    "phase": "validation-0",
+    "samples": 1600,
+    "success_rate": 1.0,
+    "collision_rate": 0.0,
+    "episodes": 8
+  },
+  {
+    "task": "hall_avoidance",
+    "phase": "collection",
+    "iteration": 1,
+    "seeds": [
+      2002600,
+      2002601,
+      2002602,
+      2002603,
+      2002604,
+      2002605,
+      2002606,
+      2002607,
+      2002608,
+      2002609,
+      2002610,
+      2002611,
+      2002612,
+      2002613,
+      2002614,
+      2002615
+    ],
+    "samples": 800,
+    "completed_episodes": 15,
+    "rollout_successes": 15,
+    "rollout_collisions": 0,
+    "teacher_mix": 0.0,
+    "action_noise_std": 0.0,
+    "labels": "Privileged waypoint teacher; absent from policy observations"
+  },
+  {
+    "task": "hall_avoidance",
+    "phase": "fit",
+    "iteration": 1,
+    "samples": 2400,
+    "loss": 0.03181381896138191
+  },
+  {
+    "task": "hall_avoidance",
+    "phase": "validation-1",
+    "samples": 2400,
+    "success_rate": 0.5,
+    "collision_rate": 0.125,
+    "episodes": 8
+  },
+  {
+    "task": "hall_avoidance",
+    "phase": "audit",
+    "samples": 2400,
+    "success_rate": 1.0,
+    "collision_rate": 0.0,
+    "episodes": 20
+  },
+  {
+    "task": "hall_avoidance",
+    "phase": "stale-vision",
+    "samples": 2400,
+    "success_rate": 0.0,
+    "collision_rate": 0.0,
+    "episodes": 20
+  }
+]

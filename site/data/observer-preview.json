@@ -1,0 +1,24 @@
+{
+  "kind": "evaluation_replay",
+  "run_id": "hall-20260922-replay1",
+  "seed": 2006208,
+  "frames": 51,
+  "fps": 10,
+  "width": 960,
+  "height": 540,
+  "updated_at": 1790038173.6059961,
+  "success": true,
+  "collision": false,
+  "final_distance": 0.1983527632935193,
+  "source_trajectory_max_error_m": 0.0,
+  "checkpoint_sha256": "69c78a716045fc0a24b9faad1bf21038d68c7da4c3bba7097f30f4f8b13b946d",
+  "source_audit_sha256": "da53b682d68097d4f5d5c5a5cf973c05151373226bb41292676ededd4c31e1ec",
+  "physics_and_policy_unchanged": true,
+  "policy_rgb_size": [
+    320,
+    240
+  ],
+  "camera_distance_m": 0.8,
+  "display_only": true,
+  "note": "Separate observer cameras; same saved policy/seed rerun without training."
+}

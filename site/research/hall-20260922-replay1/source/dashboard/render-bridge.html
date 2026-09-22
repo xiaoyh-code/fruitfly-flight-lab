@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FruitFly — 3DGS Camera Bridge</title>
+<style>
+:root{color-scheme:dark;--ink:#e8eee4;--muted:#a6b2a5;--lime:#d5f58a;--line:#ffffff20}*{box-sizing:border-box}body{margin:0;padding:40px;background:#121a16;color:var(--ink);font-family:"Avenir Next","PingFang TC",sans-serif}main{max-width:1020px;margin:auto}.eyebrow{font-size:11px;font-weight:600;letter-spacing:.22em;color:var(--lime)}h1{font-size:35px;font-weight:500;letter-spacing:-.04em;margin:14px 0 8px}p{color:var(--muted);font-size:13px;line-height:1.8}.layout{display:grid;grid-template-columns:minmax(320px,640px) 1fr;gap:25px;margin-top:30px}.frame{border:1px solid var(--line);background:#000;aspect-ratio:4/3;position:relative}#camera{width:100%;height:100%;display:block;image-rendering:auto}.tag{position:absolute;bottom:12px;left:13px;font-size:10px;letter-spacing:.1em;padding:6px 8px;background:#111a16db;color:var(--lime);pointer-events:none}.stats{display:flex;flex-direction:column;gap:23px;border-top:1px solid var(--line);padding-top:18px}.stat small{display:block;color:var(--muted);font-size:10px;letter-spacing:.12em;margin-bottom:8px}.stat b{font-size:23px;font-weight:500;font-variant-numeric:tabular-nums}.stat code{font-size:11px;overflow-wrap:anywhere;color:var(--ink)}#status{border-left:2px solid var(--lime);padding:10px 15px;background:#ffffff04;font-size:13px;line-height:1.6;margin-top:24px}#status.error{border-color:#ffa589;color:#ffbfa5}a{color:var(--lime)}footer{border-top:1px solid var(--line);margin-top:30px;padding-top:16px;color:var(--muted);font-size:11px;line-height:1.9}@media(max-width:760px){body{padding:22px}.layout{grid-template-columns:1fr;gap:16px}.stats{flex-direction:row;flex-wrap:wrap}.stat{min-width:110px}h1{font-size:27px}}
+</style>
+<script type="importmap">{"imports":{"three":"/lib/three.module.js","gaussian":"/lib/gaussian-splats-3d.module.js"}}</script>
+</head>
+<body><main>
+<div class="eyebrow">FRUITFLY / REAL SCENE CAMERA</div>
+<h1>果蠅睇到嘅真實場景。</h1>
+<p>TUM Flight Hall · 靜態 3D Gaussian Splatting · 按實驗要求逐張產生相機畫面</p>
+<section class="layout">
+<div class="frame" id="viewport"><canvas id="camera" width="320" height="240" aria-label="模型接收嘅即時 3DGS RGB 相機畫面"></canvas><div class="tag">ACTUAL RGB · 320 × 240 · 85° VFOV</div></div>
+<div class="stats">
+<div class="stat"><small>傳送畫面</small><b id="count">0</b></div>
+<div class="stat"><small>上張渲染時間</small><b id="latency">—</b></div>
+<div class="stat"><small>FRAME ID</small><code id="frameid">等待實驗</code></div>
+<div class="stat"><small>相機 XYZ / METRES</small><code id="pose">—</code></div>
+</div></section>
+<div id="status" role="status">正在載入 98,372 個 Gaussian…</div>
+<div id="experiment" role="status" style="font-size:13px;line-height:1.8;color:var(--muted);margin-top:14px">等待實驗狀態…</div>
+<footer>呢個畫面係模型實際接收嘅 RGB；測距同避障結果由 Python 實驗另外計算。保持呢個分頁開啟。<br>
+場景：<a href="https://huggingface.co/datasets/amacati/splats" target="_blank" rel="noreferrer">TUM LSY / amacati</a> · 渲染：GaussianSplats3D 0.4.7 / Three.js 0.170 · 原始場景座標，+Z 向上<br>
+目前使用本機 WebGL 相機接口；Unity 版本仍需啟用本機授權。</footer>
+</main>
+<script type="module">
+import * as THREE from 'three';
+import * as GS from 'gaussian';
+const status=document.getElementById('status');
+const canvas=document.getElementById('camera');
+const setStatus=(text,error=false)=>{status.textContent=text;status.className=error?'error':'';};
+const postJSON=(url,data)=>fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),cache:'no-store'});
+const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+let frames=0;
+let stopped=false;
+let viewer;
+
+async function showExperiment(){
+  try{
+    const response=await fetch('/status',{cache:'no-store'});
+    if(!response.ok)return;
+    const state=await response.json();
+    const progress=Number.isFinite(state.completed)&&Number.isFinite(state.total)&&state.total>0?` · ${state.completed} / ${state.total}`:'';
+    document.getElementById('experiment').textContent=`${state.phase||'實驗'}${progress} — ${state.message||state.messsage||'等待結果'}`;
+    if(state.phase==='complete') setStatus('本輪測試已完成 · 呢度顯示最後一幀，並非持續訓練');
+  }catch{}
+}
+showExperiment();
+setInterval(showExperiment,1500);
+
+async function capture(request){
+  // A pending sort belongs to the previous pose. Finish it before changing the camera.
+  if(viewer.sortPromise) await viewer.sortPromise;
+  if(viewer.sortRunning) throw new Error('Previous camera sort did not finish');
+  const camera=viewer.camera;
+  camera.position.fromArray(request.cam_pos);
+  camera.up.fromArray(request.cam_up).normalize();
+  const target=new THREE.Vector3().fromArray(request.cam_forward).normalize().add(camera.position);
+  camera.lookAt(target);
+  camera.updateProjectionMatrix();
+  camera.updateMatrixWorld(true);
+  viewer.splatMesh.updateMatrixWorld(true);
+  // runSplatSort resolves after posting work. Its separate sortPromise resolves
+  // only after sorted indexes for THIS pose have returned from the WASM worker.
+  await viewer.runSplatSort(true,true);
+  if(viewer.sortPromise) await viewer.sortPromise;
+  if(viewer.sortRunning || !viewer.splatRenderReady) throw new Error('Current camera frame is not ready');
+  viewer.updateSplatMesh();
+  viewer.renderer.clear();
+  viewer.render();
+  // toBlob may be scheduled as idle work and stall for ~1s in background tabs.
+  // Synchronous PNG export captures this exact completed draw without waiting
+  // for a browser animation/idle callback. No frame or camera pose is replaced.
+  const png=canvas.toDataURL('image/png');
+  const binary=atob(png.slice(png.indexOf(',')+1));
+  const bytes=new Uint8Array(binary.length);
+  for(let index=0;index<binary.length;index++)bytes[index]=binary.charCodeAt(index);
+  return new Blob([bytes],{type:'image/png'});
+}
+
+async function serve(){
+  while(!stopped){
+    let request;
+    let claimed=false;
+    try{
+      const next=await fetch('/next',{cache:'no-store'});
+      if(next.status===204) continue;
+      if(!next.ok) throw new Error(`Camera queue HTTP ${next.status}`);
+      request=await next.json();
+      const claim=await postJSON('/claim',{id:request.id,lease_token:request.lease_token});
+      if(claim.status===409) continue; // A newer browser offer owns this frame.
+      if(!claim.ok) throw new Error(`Frame claim HTTP ${claim.status}`);
+      claimed=true;
+      const start=performance.now();
+      const blob=await capture(request);
+      const elapsed=performance.now()-start;
+      const reply=await fetch(`/frame?id=${encodeURIComponent(request.id)}&lease_token=${encodeURIComponent(request.lease_token)}`,{method:'POST',headers:{'Content-Type':'image/png'},body:blob,cache:'no-store'});
+      if(!reply.ok) throw new Error(`Frame rejected HTTP ${reply.status}: ${(await reply.text()).slice(0,160)}`);
+      frames++;
+      document.getElementById('count').textContent=frames.toLocaleString();
+      document.getElementById('latency').textContent=`${elapsed.toFixed(0)} ms`;
+      document.getElementById('frameid').textContent=request.id;
+      document.getElementById('pose').textContent=request.cam_pos.map(v=>v.toFixed(3)).join(', ');
+      setStatus('相機已連接 · 正在按實驗要求提供真實 3DGS 畫面');
+    }catch(error){
+      console.error(error);
+      setStatus(`相機錯誤：${error.message}`,true);
+      if(request&&claimed){
+        try{await postJSON(`/error?id=${encodeURIComponent(request.id)}&lease_token=${encodeURIComponent(request.lease_token)}`,{error:error.message});}catch{}
+      }
+      await delay(1000);
+    }
+  }
+}
+
+try{
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:false,precision:'highp',preserveDrawingBuffer:true,alpha:false});
+  renderer.setPixelRatio(1);
+  renderer.setSize(320,240,false);
+  renderer.setClearColor(0x000000,1);
+  const camera=new THREE.PerspectiveCamera(85,320/240,.03,500);
+  camera.position.set(0,0,1.5);
+  camera.up.set(0,0,1);
+  camera.lookAt(1,0,1.5);
+  camera.updateMatrixWorld(true);
+  viewer=new GS.Viewer({rootElement:document.getElementById('viewport'),renderer,camera,
+    selfDrivenMode:false,useBuiltInControls:false,ignoreDevicePixelRatio:true,
+    sharedMemoryForWorkers:false,gpuAcceleratedSort:false,integerBasedSort:false,
+    sphericalHarmonicsDegree:0,sceneRevealMode:GS.SceneRevealMode.Instant,
+    antialiased:false});
+  await viewer.addSplatScene('/scene/robot_hall.ply',{splatAlphaRemovalThreshold:1,showLoadingUI:false,progressiveLoad:false});
+  await capture({cam_pos:[0,0,1.5],cam_forward:[1,0,0],cam_up:[0,0,1]});
+  const ready=await postJSON('/ready',{ready:true});
+  if(!ready.ok) throw new Error('Could not register camera');
+  setStatus('相機準備好 · 等待 Python 實驗要求畫面');
+  window.addEventListener('pagehide',()=>{stopped=true;navigator.sendBeacon('/ready',new Blob([JSON.stringify({ready:false})],{type:'application/json'}));});
+  canvas.addEventListener('webglcontextlost',event=>{event.preventDefault();stopped=true;setStatus('WebGL 畫面已中斷；重新載入此分頁恢復。',true);postJSON('/ready',{ready:false});});
+  await serve();
+}catch(error){
+  console.error(error);
+  setStatus(`無法啟動相機：${error.message}`,true);
+  try{await postJSON('/ready',{ready:false});}catch{}
+}
+</script>
+</body></html>

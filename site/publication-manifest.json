@@ -1,12 +1,16 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-22T00:26:35.220845+00:00",
-  "run_id": "hall-20260921-fast",
+  "generated_at": "2026-09-22T01:52:37.393974+00:00",
+  "run_id": "hall-20260922-replay1",
   "kind": "saved_read_only_experiments",
   "contains_training_controls": false,
+  "teaching_package_included": true,
+  "training_sample_count": 2400,
+  "replay_episode_count": 20,
+  "future_tasks_status": "planned_not_executed",
   "hall_asset_rehosted": false,
   "school_full_density_included": true,
-  "bytes_excluding_this_manifest": 380206477,
+  "bytes_excluding_this_manifest": 412726963,
   "files": [
     {
       "path": ".nojekyll",
@@ -39,14 +43,29 @@
       "sha256": "f5eaaa4c729e9e8a976fbb995655316cf5d6ec9e2a1f467aaaa1a39570a98e98"
     },
     {
+      "path": "data/experiment-summary.json",
+      "bytes": 7764,
+      "sha256": "bb89971dae1a57d0bc06af8cfee9619501aab2b080c8a05822aa993acdcd84f6"
+    },
+    {
       "path": "data/hall-audit.json",
-      "bytes": 125286,
-      "sha256": "76b0196a0ac38c0b4439096d2aecc56af94f3ec1a6edf429bddd6f8ed15c67ec"
+      "bytes": 316567,
+      "sha256": "ecfc7a63431e81dd0f41ee5ccf07aa34031afc03601b6512b6e3fc77b938ee9c"
+    },
+    {
+      "path": "data/hall-replay.json",
+      "bytes": 322732,
+      "sha256": "a26f1def73ffe7333ed4b492619b406957569ee37ebc538289506a208d122cc7"
     },
     {
       "path": "data/hall-stale-vision.json",
-      "bytes": 229338,
-      "sha256": "04f00234dc0c136e715dc39484fab60ec4879712c2a533c0ed5862ca0b1ff6e7"
+      "bytes": 707630,
+      "sha256": "d31d51a156c4c37a6695c594baa40228652c389ffd12eef66e1d1fdfc76baa40"
+    },
+    {
+      "path": "data/observer-preview.json",
+      "bytes": 717,
+      "sha256": "28c48364b1261d66fe5a2bb6ddfbeaa7754f0a01661fd53da3a3956e315ca71e"
     },
     {
       "path": "data/scenes.json",
@@ -54,9 +73,49 @@
       "sha256": "4edd0ec3bed11bc46c124bca81c6e9b08dc2b67e0e5c551b2ac94b5abff5363f"
     },
     {
+      "path": "figures/audit-clearance.png",
+      "bytes": 183640,
+      "sha256": "bb888f8dde9fa969053ede8a24d8940f77be0193d6f8372b2bc06f6801f87e26"
+    },
+    {
+      "path": "figures/audit-clearance.svg",
+      "bytes": 24437,
+      "sha256": "18aa3d5110e30d0a560c98d5fef868395eda7cbbdce4e1b6df76dc1773dc0f77"
+    },
+    {
+      "path": "figures/audit-trajectories.png",
+      "bytes": 332546,
+      "sha256": "e63b2d0cbea29dada9049e4445e24cac2b43de7f179bdeb4b7c3b7070c3a203b"
+    },
+    {
+      "path": "figures/audit-trajectories.svg",
+      "bytes": 60739,
+      "sha256": "c24a29ccd036ff5ce5679812e137e55afaa9b26093a48cd8d0118c98aa3826f2"
+    },
+    {
+      "path": "figures/phase-outcomes.png",
+      "bytes": 156368,
+      "sha256": "f545e1915e239ceca2120facca87a8ae08c305f4de5ca98742da523644b19c09"
+    },
+    {
+      "path": "figures/phase-outcomes.svg",
+      "bytes": 21863,
+      "sha256": "ce7c132aebbc003b1308d708a78de1a42edcd2da9057dbbc544d2e8cd84e2342"
+    },
+    {
+      "path": "figures/training-fit-loss.png",
+      "bytes": 121670,
+      "sha256": "1d1974e6c0c16baa7ae9067f0992f8d6424ef73d2cf6d3f6d5073880a7c71f2f"
+    },
+    {
+      "path": "figures/training-fit-loss.svg",
+      "bytes": 11329,
+      "sha256": "f96f8408ffe1bb4671366c6adb693d68d2a2904f94b3d3f43d290273a39e2570"
+    },
+    {
       "path": "index.html",
-      "bytes": 14812,
-      "sha256": "73de09a5d5b7dbd6d97a664e6f65151dd3d0c7191ae57b782da1d7e2ca7b111a"
+      "bytes": 14448,
+      "sha256": "7a066095b9392452b2535dd39971d512bec46bc84ae984d516f648af59960284"
     },
     {
       "path": "lib/crazyflie-scene.js",
@@ -67,6 +126,16 @@
       "path": "lib/gaussian-splats-3d.module.js",
       "bytes": 616821,
       "sha256": "f273394134c9174e49bf42bb4ea0945caaad4fdd63023b8996cc6cd248f52a6b"
+    },
+    {
+      "path": "lib/hall-replay.js",
+      "bytes": 20314,
+      "sha256": "b462a6ee45457be50ca22dcbb362fe0fab714a107d80037aa351f5825c4ba5bd"
+    },
+    {
+      "path": "lib/public-lab.css",
+      "bytes": 11682,
+      "sha256": "5be4fee985eecfde094429a8873be63a06f078cb70803c5688852bd6abc029a1"
     },
     {
       "path": "lib/three.module.js",
@@ -100,28 +169,418 @@
     },
     {
       "path": "media/observer-follow.jpg",
-      "bytes": 108738,
-      "sha256": "4085537fc8260630ae56715b3f792636dd12c4cbbb8c8a0df389fe9968e11cbf"
+      "bytes": 105674,
+      "sha256": "cdfad4c173cf7713b47f0e885a3b3794089c04ef62b1ecdd2d5e3d4377ef4553"
     },
     {
       "path": "media/observer-follow.mp4",
-      "bytes": 2038610,
-      "sha256": "d388b4f546a8c999a33d46659166b6fcb1c7c976808d4e6820e76765b2e6ae9c"
+      "bytes": 2060521,
+      "sha256": "a6c8faa2622f3f6e4443db30513e3d416869a40851d3e75ce44bc4e00cf043ca"
     },
     {
       "path": "media/observer-overview.jpg",
-      "bytes": 177529,
-      "sha256": "146dd818f64774a536060693e8bb1d85335d196eb6ea082c57f190ba307c7e67"
+      "bytes": 177545,
+      "sha256": "20e1b572013acad4a2ef847b938148fc80474057306f1cec44144671e87cb471"
     },
     {
       "path": "media/observer-overview.mp4",
-      "bytes": 2949155,
-      "sha256": "448ab9b5522c960d03ff1e5ff948ba9424c08fe6faec50975714f3e5c5dbcbf0"
+      "bytes": 3475260,
+      "sha256": "719c0afb29426f9f2c241efa4164659adb7f8e57d1434640076113fdb43e529c"
+    },
+    {
+      "path": "research/hall-20260922-replay1/README.md",
+      "bytes": 2259,
+      "sha256": "8ddbef297ec1b6f3b64202be2e9785d02f652ade69f0883556c82319f61db2ee"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/audit_paired_control.csv",
+      "bytes": 4096,
+      "sha256": "eddfa6ac37f860bd22e94d0bd5d8849aa72375e057722f6d96422addf601beaf"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/checkpoint_hashes.json",
+      "bytes": 854,
+      "sha256": "5cd18d1f8b2dce135092e7e98b71ddfce0208a7d90631930667e661213b1d9ad"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/collection_history.csv",
+      "bytes": 156,
+      "sha256": "d114c9e8c948dd43556d932bb96c08c7d4dc88c17b48f55a791f774544a7894f"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/episodes.csv",
+      "bytes": 11617,
+      "sha256": "d73514097cc94cd546917a3d006cd9f8fc49060f6246e6553de59075422ab8a2"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/feature_dictionary.json",
+      "bytes": 31031,
+      "sha256": "56828ed4d6c66f04bb84310283785e29db5c9133251a620fc13002e48d9cac18"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/hall-demonstrations.npz",
+      "bytes": 707134,
+      "sha256": "15177311f5e28900f7d1b544f8e1f44dc1361119e486e3e74dc5f76e88d2121f"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/provenance.json",
+      "bytes": 7136,
+      "sha256": "7266f6bebb5791ab6ab298304a092cbea0320b4966003db1d345ce400de828e9"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/raw/hall-training.json",
+      "bytes": 1551,
+      "sha256": "627eedde17447e49a42061ca0f557e626c095d01621a5f38d6b41380dcf10ae0"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/raw/hall_avoidance-audit.json",
+      "bytes": 320693,
+      "sha256": "da53b682d68097d4f5d5c5a5cf973c05151373226bb41292676ededd4c31e1ec"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/raw/hall_avoidance-stale-vision.json",
+      "bytes": 711746,
+      "sha256": "8c5d013b6f94327432dda0262b180dc2f3a4e78ae058c1189d80e84fd68ab101"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/raw/hall_avoidance-validation-0.json",
+      "bytes": 128721,
+      "sha256": "2063c6c231a07b26ab9b23aabe3b638dea18c620a8bc10bdbd4001b645e70d45"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/raw/hall_avoidance-validation-1.json",
+      "bytes": 199475,
+      "sha256": "da750b58e019b17e46a421bf502986a150c9152ef753175590f630e1fda9f857"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/raw/hall_avoidance-validation-source.json",
+      "bytes": 125895,
+      "sha256": "7831e96944b4f2a65fcaf488ddb5b04743d10613053c26835175e53a4b91acb6"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/raw/history.json",
+      "bytes": 2475,
+      "sha256": "0044481487938ad24419ba7aa96dcfa12fc57837bd4c9759111a419a5d69eeae"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/raw/renderer-performance.json",
+      "bytes": 153,
+      "sha256": "25949ab9226efc61a855a18445d3e70cd84a06165e4635ab34eb937b0249ed7a"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/raw/run-config.json",
+      "bytes": 2352,
+      "sha256": "0ef0b506f8896a2b58609f0743120af49dc5602a178f6c367a7bf9d0e1b5e0cf"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/raw/seed-manifest.json",
+      "bytes": 2382,
+      "sha256": "e6aec00e7e39b084e50dee4958c84a6bd7e14c30f49fbbe980e4def02e1ec758"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/seed_manifest.json",
+      "bytes": 2382,
+      "sha256": "e6aec00e7e39b084e50dee4958c84a6bd7e14c30f49fbbe980e4def02e1ec758"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/summary.json",
+      "bytes": 7764,
+      "sha256": "bb89971dae1a57d0bc06af8cfee9619501aab2b080c8a05822aa993acdcd84f6"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/training_history.csv",
+      "bytes": 115,
+      "sha256": "1c706cb15982bf0d9ce388fe8d82429dca8a46dda3ffe7a97c448bccd683db59"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/training_samples.csv",
+      "bytes": 3926544,
+      "sha256": "a9984c987a207788ec4f7175673e90f4b668418a195e6a360a313ee7bd982db1"
+    },
+    {
+      "path": "research/hall-20260922-replay1/data/trajectories.csv",
+      "bytes": 928297,
+      "sha256": "69ee3447ee03db03ef107677e78542e9e548fadedc5569a0e407ab4f4ca93dcc"
+    },
+    {
+      "path": "research/hall-20260922-replay1/figures/audit-clearance.png",
+      "bytes": 183640,
+      "sha256": "bb888f8dde9fa969053ede8a24d8940f77be0193d6f8372b2bc06f6801f87e26"
+    },
+    {
+      "path": "research/hall-20260922-replay1/figures/audit-clearance.svg",
+      "bytes": 24437,
+      "sha256": "18aa3d5110e30d0a560c98d5fef868395eda7cbbdce4e1b6df76dc1773dc0f77"
+    },
+    {
+      "path": "research/hall-20260922-replay1/figures/audit-trajectories.png",
+      "bytes": 332546,
+      "sha256": "e63b2d0cbea29dada9049e4445e24cac2b43de7f179bdeb4b7c3b7070c3a203b"
+    },
+    {
+      "path": "research/hall-20260922-replay1/figures/audit-trajectories.svg",
+      "bytes": 60739,
+      "sha256": "c24a29ccd036ff5ce5679812e137e55afaa9b26093a48cd8d0118c98aa3826f2"
+    },
+    {
+      "path": "research/hall-20260922-replay1/figures/captions.json",
+      "bytes": 3785,
+      "sha256": "a7625cc2f49f5f7c24bebab7f37c5a9ae5e243e8ca9db233d2871dd2a28c2b4c"
+    },
+    {
+      "path": "research/hall-20260922-replay1/figures/phase-outcomes.png",
+      "bytes": 156368,
+      "sha256": "f545e1915e239ceca2120facca87a8ae08c305f4de5ca98742da523644b19c09"
+    },
+    {
+      "path": "research/hall-20260922-replay1/figures/phase-outcomes.svg",
+      "bytes": 21863,
+      "sha256": "ce7c132aebbc003b1308d708a78de1a42edcd2da9057dbbc544d2e8cd84e2342"
+    },
+    {
+      "path": "research/hall-20260922-replay1/figures/provenance.json",
+      "bytes": 7852,
+      "sha256": "6dd4e3efad6635128ad8c724a07efe61441fc3d4a5aa164d2418910ddfc2636e"
+    },
+    {
+      "path": "research/hall-20260922-replay1/figures/training-fit-loss.png",
+      "bytes": 121670,
+      "sha256": "1d1974e6c0c16baa7ae9067f0992f8d6424ef73d2cf6d3f6d5073880a7c71f2f"
+    },
+    {
+      "path": "research/hall-20260922-replay1/figures/training-fit-loss.svg",
+      "bytes": 11329,
+      "sha256": "f96f8408ffe1bb4671366c6adb693d68d2a2904f94b3d3f43d290273a39e2570"
+    },
+    {
+      "path": "research/hall-20260922-replay1/index.html",
+      "bytes": 64460,
+      "sha256": "ac924e8d7151e1101e4a4450b7af80fb1317491d7a4fc97aba6af8312311b01f"
+    },
+    {
+      "path": "research/hall-20260922-replay1/licenses/Crazyflie-LICENSE.txt",
+      "bytes": 1082,
+      "sha256": "fc2e3286b47f415c0724d1f82047501d738ef60cff3779b2f3998ea75d8aae99"
+    },
+    {
+      "path": "research/hall-20260922-replay1/manifest.json",
+      "bytes": 12471,
+      "sha256": "e1019648312de4748a789e7978703f48bc29b80e8628264f2b6ef492363a5eaa"
+    },
+    {
+      "path": "research/hall-20260922-replay1/media/observer-follow.jpg",
+      "bytes": 105674,
+      "sha256": "cdfad4c173cf7713b47f0e885a3b3794089c04ef62b1ecdd2d5e3d4377ef4553"
+    },
+    {
+      "path": "research/hall-20260922-replay1/media/observer-follow.mp4",
+      "bytes": 2060521,
+      "sha256": "a6c8faa2622f3f6e4443db30513e3d416869a40851d3e75ce44bc4e00cf043ca"
+    },
+    {
+      "path": "research/hall-20260922-replay1/media/observer-overview.jpg",
+      "bytes": 177545,
+      "sha256": "20e1b572013acad4a2ef847b938148fc80474057306f1cec44144671e87cb471"
+    },
+    {
+      "path": "research/hall-20260922-replay1/media/observer-overview.mp4",
+      "bytes": 3475260,
+      "sha256": "719c0afb29426f9f2c241efa4164659adb7f8e57d1434640076113fdb43e529c"
+    },
+    {
+      "path": "research/hall-20260922-replay1/media/observer-preview.json",
+      "bytes": 717,
+      "sha256": "28c48364b1261d66fe5a2bb6ddfbeaa7754f0a01661fd53da3a3956e315ca71e"
+    },
+    {
+      "path": "research/hall-20260922-replay1/models/provenance.json",
+      "bytes": 3615,
+      "sha256": "94eb6a7fb9e8021b8e98b557754343f5d8e43bfd3bb6b6a7a9f8a78975a79d83"
+    },
+    {
+      "path": "research/hall-20260922-replay1/models/rejected-round-1.pt",
+      "bytes": 111169,
+      "sha256": "15b00bcb5a9022531fa451e755ea99d81f4c40397b516591ce4a873ffadc4bf5"
+    },
+    {
+      "path": "research/hall-20260922-replay1/models/selected-round-0.pt",
+      "bytes": 111169,
+      "sha256": "9d19c748edd43e9c517c9f10146be819446322b01ae7b0bb61b81da4c5ae609b"
+    },
+    {
+      "path": "research/hall-20260922-replay1/models/source-baseline.pt",
+      "bytes": 110965,
+      "sha256": "b2134685720b09b1e7b93103ec639d1bb94daa0701bfeb9656655bb0fc8f76fa"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/README.md",
+      "bytes": 577,
+      "sha256": "7cbc53c1cd7b0d535df8387c903dc9994ab0767ab0f0108e2954e800ac9acc59"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/dashboard/render-bridge.html",
+      "bytes": 9688,
+      "sha256": "a5337e3ed54303d0f4191258d70eccade5eb1cfdad15ae69cb10fcc3e54fbef9"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/dashboard/student-review.html",
+      "bytes": 16686,
+      "sha256": "61cef77cb03c540998dc04af03b5ee7c15af539d5f903682acc3177efc39e00c"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/docs/hall-training.md",
+      "bytes": 9198,
+      "sha256": "c86511cecf2c935b4108bb5875e12224b5d1bae2680f85fc762d56f678136533"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/requirements.in",
+      "bytes": 238,
+      "sha256": "9dadc7c98bbf89bf86db498f7bc80a5706f6765b292c413e04decff9fb023d62"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/requirements.lock.txt",
+      "bytes": 1835,
+      "sha256": "7da3e82bffd2afbf81036c90fb9fb62ab697e4e019b2fff2b04ddc5fd29a9950"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/scripts/build_student_pack.py",
+      "bytes": 21180,
+      "sha256": "957f481d5a8fca8e275434ce143b5b72de1e6d26e04cde595ed19e7a27dc4b3f"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/scripts/build_student_workbook.mjs",
+      "bytes": 15683,
+      "sha256": "cfe29fd82104268af8d9642312f9d12d44b924a28b5639b605b479d19a2d44cc"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/scripts/export_hall_replay.py",
+      "bytes": 13969,
+      "sha256": "1ad2bdda46018eed899008b39be63e80ffef851294a8c4844a64edea96be158d"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/scripts/export_student_data.py",
+      "bytes": 20810,
+      "sha256": "0a9acab56ff382c2c88bc77141e2084e935048e7a9a05d6fc2c54abfe01b144b"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/scripts/plot_student_results.py",
+      "bytes": 21678,
+      "sha256": "d7ad6f1a205b0fab3bb1239c55c23589b763cd0b56fa5cbe921b99fc55a2bc1c"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/scripts/render_hall_observer.py",
+      "bytes": 5838,
+      "sha256": "408be1f01564d80849b7d5abe1a4ef292927fe69bd18ed41cde1b123a83b6cc7"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/scripts/serve_render_bridge.py",
+      "bytes": 16672,
+      "sha256": "ba905b25f79041f4f693ed2093c7d4a1fe4a8bdcabdcd462b4facd6fc713619e"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/scripts/train_curriculum.py",
+      "bytes": 15518,
+      "sha256": "c6801a919dfb04a3094cb33bef101578ad29d192db8f6f8417177febfe44e3db"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/scripts/train_hall.py",
+      "bytes": 26551,
+      "sha256": "e3d98a89d5da4d959ae9851b30eae930f881c01eba07802eccf062c2e381e803"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/scripts/train_missions.py",
+      "bytes": 17503,
+      "sha256": "9094e9e7d49a131b943fb2f581e3984f63a6cedbbe76ff1fbb0cb3813e7177b2"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/scripts/train_visual.py",
+      "bytes": 12652,
+      "sha256": "734833db7d2d734aeb1eb6a82e2acc85e2798e6114bb4ba4078d9c9e0fb26583"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/src/fruitfly_sim/__init__.py",
+      "bytes": 187,
+      "sha256": "b484cfe578d6339c215f6284413594c21696c007872d3925e6cef372358b2328"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/src/fruitfly_sim/env.py",
+      "bytes": 14537,
+      "sha256": "073fe7532667efe8e5c9749707ad5b8f94c4ecb06d42526961b51a77e1df994d"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/src/fruitfly_sim/flyvis_features.py",
+      "bytes": 6379,
+      "sha256": "f1b0de9b92ae26a1ed7fc30d465bf9302b2fac01b9f111c08e3771afeab6ca71"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/src/fruitfly_sim/learning_env.py",
+      "bytes": 11321,
+      "sha256": "a216acdffe426c5efe27de4ded34f87fd881a1ffcf8f336737395aebccc0b721"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/src/fruitfly_sim/mission_env.py",
+      "bytes": 22405,
+      "sha256": "280eef8914dc41184cca8e7a29f44f404af13b69528503edfeeffb6dbf1f3e14"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/src/fruitfly_sim/observer_view.py",
+      "bytes": 3915,
+      "sha256": "1d1c9afc5d46a5884c41b51ef6cd1c1e10daf9cb2aba7239587c83d4aa112eda"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/src/fruitfly_sim/splat_env.py",
+      "bytes": 4446,
+      "sha256": "67a1ad49bc3254ba62f9bf30a71744d478b674c7ce0be89135dbd69fa779352a"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/src/fruitfly_sim/unity_renderer.py",
+      "bytes": 4191,
+      "sha256": "d7ee3cb8ecbfcf41f3c61b38dcce4a8c9b0113beedf970a064aba8dc4dda854c"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/src/fruitfly_sim/visual_env.py",
+      "bytes": 3729,
+      "sha256": "251a359b3e33350ddacdd496111dfbae3db7102bd8e0f027db6bca7852818b58"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/tests/test_hall_replay.py",
+      "bytes": 7661,
+      "sha256": "09678a8d7b62095a9f5178b7e779da16f07ffd00962a32f58c0e7f1f81bca9f5"
+    },
+    {
+      "path": "research/hall-20260922-replay1/source/tests/test_student_data.py",
+      "bytes": 8478,
+      "sha256": "bb8cc730a461cc3b26934dbfbd75fb697447b700e09845e63ffbd976eea1d308"
+    },
+    {
+      "path": "research/hall-20260922-replay1/student-report-guide.md",
+      "bytes": 6818,
+      "sha256": "6acdeb58f2b7352ce37102a07708b75f381d5bcb822e02ee3f961d7d8ce9a5cc"
+    },
+    {
+      "path": "research/hall-20260922-replay1/training-data.xlsx",
+      "bytes": 2584806,
+      "sha256": "c9e660b04e214bea9801f19859621c730342de581fe080f62e4c125dd3806035"
+    },
+    {
+      "path": "research/hall-20260922-replay1-student-pack.zip",
+      "bytes": 12828858,
+      "sha256": "9d3bd2dfa8f8084b0ad04f3d93bf048d084f8e54f605c877e3c0246d51801a8a"
+    },
+    {
+      "path": "roadmap.html",
+      "bytes": 7470,
+      "sha256": "28955c88c10d47c66264138c38fdb1852f7259ec601ae703f01355573a2cbca1"
     },
     {
       "path": "scene.html",
-      "bytes": 10493,
-      "sha256": "867391d60fc94ed10f63c5b9d85809da2fbdcdeb17d5a8eca6a7c89d5ed1ae89"
+      "bytes": 11133,
+      "sha256": "8fec1ef102f9d0ab027b75e0d7afad9709b3423281e38a240bec6bbf9a2a2709"
+    },
+    {
+      "path": "scenes.html",
+      "bytes": 4686,
+      "sha256": "9c608d72ebfa5343d9875961efc0b254d021489c3f4898fac390b257e954b2ac"
     }
   ]
 }

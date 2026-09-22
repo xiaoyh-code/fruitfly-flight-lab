@@ -1,0 +1,65 @@
+{
+  "arguments": {
+    "run_id": "hall-20260922-replay1",
+    "frames": 1600,
+    "dagger_frames": 800,
+    "rounds": 1,
+    "epochs": 60,
+    "validation_episodes": 8,
+    "audit_episodes": 20,
+    "port": 8770,
+    "previous_action_dropout": 0.5,
+    "source_checkpoint": "checkpoints/missions/hall-20260921-fast/hall-visual-head.pt",
+    "seed_base": 2000000,
+    "torch_seed": 922
+  },
+  "started_at": 1790037924.8601742,
+  "task": "hall_avoidance",
+  "scene": "TUM Flight Hall",
+  "source_checkpoint_sha256": "6c8c09bcc4a494596b47f17eb103d10e1f9b79c875bf26e048602bafc0f954ac",
+  "source_scene_sha256": "ac883665efc87f84174f0a7d385277299da39e49df7c3838d78dad860ddf2681",
+  "observations": "72 frozen streaming Flyvis + goal xy + velocity xy + previous action xy",
+  "algorithm": "supervised head fine-tuning + pure-learner DAgger; not reinforcement learning",
+  "training_regularizer": "randomly zero previous-action pair in fitting batches only",
+  "teacher_only_supplies_training_labels": true,
+  "limitations": [
+    "Only the original static TUM Flight Hall 3DGS, not 4DGS or a new scene.",
+    "One manually fitted enlarged cylinder; no full-hall collision mesh or measured surface depth.",
+    "Goal/velocity-assisted planar navigation, fixed altitude and yaw; not outdoor/long-distance navigation.",
+    "Frozen Flyvis visual circuitry plus a separately trained action head, not whole-brain training.",
+    "Frozen-feature control is a temporal-vision diagnostic, not proof of causal depth use."
+  ],
+  "source_files": {
+    "scripts/train_hall.py": "e3d98a89d5da4d959ae9851b30eae930f881c01eba07802eccf062c2e381e803",
+    "src/fruitfly_sim/splat_env.py": "67a1ad49bc3254ba62f9bf30a71744d478b674c7ce0be89135dbd69fa779352a",
+    "src/fruitfly_sim/flyvis_features.py": "f1b0de9b92ae26a1ed7fc30d465bf9302b2fac01b9f111c08e3771afeab6ca71"
+  },
+  "proxy_geometry": {
+    "scene_center": [
+      15.15,
+      -2.95
+    ],
+    "radius_m": 0.45,
+    "bottom_m": 0.0,
+    "top_m": 1.55,
+    "vehicle_envelope_radius_m": 0.09,
+    "aabb_before": [
+      0.0,
+      0.0,
+      0.0,
+      0.45,
+      0.45,
+      0.9
+    ],
+    "aabb_after": [
+      0.0,
+      0.0,
+      0.0,
+      0.45,
+      0.45,
+      0.775
+    ],
+    "rbound": 0.8961724164467461,
+    "correction": "New run only: update compiled broad-phase half-extents to actual geom_size"
+  }
+}

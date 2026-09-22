@@ -1,0 +1,3 @@
+﻿iteration,samples,final_epoch_mse,selected
+0,1600,0.009036606177687645,true
+1,2400,0.03181381896138191,false

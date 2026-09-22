@@ -1,0 +1,1066 @@
+{
+  "schema_version": 1,
+  "training_samples_columns": [
+    {
+      "name": "sample_index",
+      "unit": "index",
+      "description": "NPZ 的零起始列序號；非時間或 episode ID。"
+    },
+    {
+      "name": "collection_round",
+      "unit": "index",
+      "description": "按 history／seed-manifest 的收集先後及樣本數標示；0 是示範，1 是 DAgger。"
+    },
+    {
+      "name": "used_in_selected_model",
+      "unit": "boolean",
+      "description": "此新收集樣本是否屬入選輪次累積 fitting dataset；不包括來源 checkpoint 之前的訓練資料。"
+    },
+    {
+      "name": "feature_00",
+      "observation_index": 0,
+      "cell_type": "T4a",
+      "spatial_row": 0,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_01",
+      "observation_index": 1,
+      "cell_type": "T4a",
+      "spatial_row": 0,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_02",
+      "observation_index": 2,
+      "cell_type": "T4a",
+      "spatial_row": 0,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_03",
+      "observation_index": 3,
+      "cell_type": "T4a",
+      "spatial_row": 1,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_04",
+      "observation_index": 4,
+      "cell_type": "T4a",
+      "spatial_row": 1,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_05",
+      "observation_index": 5,
+      "cell_type": "T4a",
+      "spatial_row": 1,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_06",
+      "observation_index": 6,
+      "cell_type": "T4a",
+      "spatial_row": 2,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_07",
+      "observation_index": 7,
+      "cell_type": "T4a",
+      "spatial_row": 2,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_08",
+      "observation_index": 8,
+      "cell_type": "T4a",
+      "spatial_row": 2,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_09",
+      "observation_index": 9,
+      "cell_type": "T4b",
+      "spatial_row": 0,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_10",
+      "observation_index": 10,
+      "cell_type": "T4b",
+      "spatial_row": 0,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_11",
+      "observation_index": 11,
+      "cell_type": "T4b",
+      "spatial_row": 0,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_12",
+      "observation_index": 12,
+      "cell_type": "T4b",
+      "spatial_row": 1,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_13",
+      "observation_index": 13,
+      "cell_type": "T4b",
+      "spatial_row": 1,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_14",
+      "observation_index": 14,
+      "cell_type": "T4b",
+      "spatial_row": 1,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_15",
+      "observation_index": 15,
+      "cell_type": "T4b",
+      "spatial_row": 2,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_16",
+      "observation_index": 16,
+      "cell_type": "T4b",
+      "spatial_row": 2,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_17",
+      "observation_index": 17,
+      "cell_type": "T4b",
+      "spatial_row": 2,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_18",
+      "observation_index": 18,
+      "cell_type": "T4c",
+      "spatial_row": 0,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_19",
+      "observation_index": 19,
+      "cell_type": "T4c",
+      "spatial_row": 0,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_20",
+      "observation_index": 20,
+      "cell_type": "T4c",
+      "spatial_row": 0,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_21",
+      "observation_index": 21,
+      "cell_type": "T4c",
+      "spatial_row": 1,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_22",
+      "observation_index": 22,
+      "cell_type": "T4c",
+      "spatial_row": 1,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_23",
+      "observation_index": 23,
+      "cell_type": "T4c",
+      "spatial_row": 1,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_24",
+      "observation_index": 24,
+      "cell_type": "T4c",
+      "spatial_row": 2,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_25",
+      "observation_index": 25,
+      "cell_type": "T4c",
+      "spatial_row": 2,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_26",
+      "observation_index": 26,
+      "cell_type": "T4c",
+      "spatial_row": 2,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_27",
+      "observation_index": 27,
+      "cell_type": "T4d",
+      "spatial_row": 0,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_28",
+      "observation_index": 28,
+      "cell_type": "T4d",
+      "spatial_row": 0,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_29",
+      "observation_index": 29,
+      "cell_type": "T4d",
+      "spatial_row": 0,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_30",
+      "observation_index": 30,
+      "cell_type": "T4d",
+      "spatial_row": 1,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_31",
+      "observation_index": 31,
+      "cell_type": "T4d",
+      "spatial_row": 1,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_32",
+      "observation_index": 32,
+      "cell_type": "T4d",
+      "spatial_row": 1,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_33",
+      "observation_index": 33,
+      "cell_type": "T4d",
+      "spatial_row": 2,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_34",
+      "observation_index": 34,
+      "cell_type": "T4d",
+      "spatial_row": 2,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_35",
+      "observation_index": 35,
+      "cell_type": "T4d",
+      "spatial_row": 2,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_36",
+      "observation_index": 36,
+      "cell_type": "T5a",
+      "spatial_row": 0,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_37",
+      "observation_index": 37,
+      "cell_type": "T5a",
+      "spatial_row": 0,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_38",
+      "observation_index": 38,
+      "cell_type": "T5a",
+      "spatial_row": 0,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_39",
+      "observation_index": 39,
+      "cell_type": "T5a",
+      "spatial_row": 1,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_40",
+      "observation_index": 40,
+      "cell_type": "T5a",
+      "spatial_row": 1,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_41",
+      "observation_index": 41,
+      "cell_type": "T5a",
+      "spatial_row": 1,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_42",
+      "observation_index": 42,
+      "cell_type": "T5a",
+      "spatial_row": 2,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_43",
+      "observation_index": 43,
+      "cell_type": "T5a",
+      "spatial_row": 2,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_44",
+      "observation_index": 44,
+      "cell_type": "T5a",
+      "spatial_row": 2,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_45",
+      "observation_index": 45,
+      "cell_type": "T5b",
+      "spatial_row": 0,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_46",
+      "observation_index": 46,
+      "cell_type": "T5b",
+      "spatial_row": 0,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_47",
+      "observation_index": 47,
+      "cell_type": "T5b",
+      "spatial_row": 0,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_48",
+      "observation_index": 48,
+      "cell_type": "T5b",
+      "spatial_row": 1,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_49",
+      "observation_index": 49,
+      "cell_type": "T5b",
+      "spatial_row": 1,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_50",
+      "observation_index": 50,
+      "cell_type": "T5b",
+      "spatial_row": 1,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_51",
+      "observation_index": 51,
+      "cell_type": "T5b",
+      "spatial_row": 2,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_52",
+      "observation_index": 52,
+      "cell_type": "T5b",
+      "spatial_row": 2,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_53",
+      "observation_index": 53,
+      "cell_type": "T5b",
+      "spatial_row": 2,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_54",
+      "observation_index": 54,
+      "cell_type": "T5c",
+      "spatial_row": 0,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_55",
+      "observation_index": 55,
+      "cell_type": "T5c",
+      "spatial_row": 0,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_56",
+      "observation_index": 56,
+      "cell_type": "T5c",
+      "spatial_row": 0,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_57",
+      "observation_index": 57,
+      "cell_type": "T5c",
+      "spatial_row": 1,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_58",
+      "observation_index": 58,
+      "cell_type": "T5c",
+      "spatial_row": 1,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_59",
+      "observation_index": 59,
+      "cell_type": "T5c",
+      "spatial_row": 1,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_60",
+      "observation_index": 60,
+      "cell_type": "T5c",
+      "spatial_row": 2,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_61",
+      "observation_index": 61,
+      "cell_type": "T5c",
+      "spatial_row": 2,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_62",
+      "observation_index": 62,
+      "cell_type": "T5c",
+      "spatial_row": 2,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_63",
+      "observation_index": 63,
+      "cell_type": "T5d",
+      "spatial_row": 0,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_64",
+      "observation_index": 64,
+      "cell_type": "T5d",
+      "spatial_row": 0,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_65",
+      "observation_index": 65,
+      "cell_type": "T5d",
+      "spatial_row": 0,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_66",
+      "observation_index": 66,
+      "cell_type": "T5d",
+      "spatial_row": 1,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_67",
+      "observation_index": 67,
+      "cell_type": "T5d",
+      "spatial_row": 1,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_68",
+      "observation_index": 68,
+      "cell_type": "T5d",
+      "spatial_row": 1,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_69",
+      "observation_index": 69,
+      "cell_type": "T5d",
+      "spatial_row": 2,
+      "spatial_column": 0,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_70",
+      "observation_index": 70,
+      "cell_type": "T5d",
+      "spatial_row": 2,
+      "spatial_column": 1,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "feature_71",
+      "observation_index": 71,
+      "cell_type": "T5d",
+      "spatial_row": 2,
+      "spatial_column": 2,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "tanh（此 cell type 空間格的平均神經活動 − 本 episode 灰畫面 warmup 基準）；不是距離。"
+    },
+    {
+      "name": "goal_x",
+      "observation_index": 72,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "clip((目標世界座標 − 無人機世界座標) / 4 m, -1, 1)；理想模擬器目標資訊，非視覺推算。"
+    },
+    {
+      "name": "goal_y",
+      "observation_index": 73,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "clip((目標世界座標 − 無人機世界座標) / 4 m, -1, 1)；理想模擬器目標資訊，非視覺推算。"
+    },
+    {
+      "name": "velocity_x",
+      "observation_index": 74,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "clip(世界座標水平速度 / 0.8 m/s, -1, 1)；理想模擬器速度資訊。"
+    },
+    {
+      "name": "velocity_y",
+      "observation_index": 75,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "clip(世界座標水平速度 / 0.8 m/s, -1, 1)；理想模擬器速度資訊。"
+    },
+    {
+      "name": "previous_action_x",
+      "observation_index": 76,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "上一步實際送入導航環境的正規化水平速度命令；每個 episode 首步為 0。"
+    },
+    {
+      "name": "previous_action_y",
+      "observation_index": 77,
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "上一步實際送入導航環境的正規化水平速度命令；每個 episode 首步為 0。"
+    },
+    {
+      "name": "action_x",
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "privileged waypoint teacher 的水平速度標籤；乘 0.8 得期望 m/s。這是教師標籤，非必然實際 rollout action；第 0 輪用教師加噪音，第 1 輪用 learner。"
+    },
+    {
+      "name": "action_y",
+      "unit": "dimensionless",
+      "range": [
+        -1,
+        1
+      ],
+      "description": "privileged waypoint teacher 的水平速度標籤；乘 0.8 得期望 m/s。這是教師標籤，非必然實際 rollout action；第 0 輪用教師加噪音，第 1 輪用 learner。"
+    }
+  ],
+  "preprocessing": "320×240 RGB → 中央方形裁切 → 灰階及縮放 → BoxEye 721 retinal hexals → 凍結 Flyvis → T4/T5 的 8×3×3 空間平均。",
+  "temporal_state": "Flyvis 神經狀態跨相機幀保留；每個 episode 重設，gray warmup 0.1 s；camera_dt 0.1 s，neural_dt 0.02 s。",
+  "csv_format": "UTF-8 with BOM; comma-separated; true/false Boolean text; sample and frame indices start at 0.",
+  "trajectory_coordinates": {
+    "frame": "MuJoCo local world",
+    "units": "metres",
+    "axes": "Z up",
+    "to_3dgs_translation": [
+      15.15,
+      -3.15,
+      0.0
+    ],
+    "quaternion_order": "w,x,y,z",
+    "timestamps": "Recorded simulation time; terminal collision may stop before a full 0.1 s step."
+  },
+  "metrics": {
+    "seconds": "模擬秒數；不是電腦運算 wall time。",
+    "collision": "原始 MuJoCo contact 標記，保留 false/true；不是對所有 3DGS 表面碰撞的判定。",
+    "min_sampled_clearance_m": "10 Hz 保存位置到圓柱中心的水平距離 − 0.45 m 代理半徑 − 0.09 m 機身保守半徑。",
+    "min_polyline_clearance_m": "保存相鄰 XY 點之間線段至圓柱的最小水平淨距；線性插值檢查，並非連續完整物理／全場景安全證明。",
+    "final_distance_m": "終點 XY 與目標 XY 的水平距離。成功門檻 < 0.25 m。",
+    "path_length_m": "相鄰保存 XYZ 位置的歐氏距離總和。",
+    "final_epoch_mse": "該輪最後 epoch 各 batch 的訓練 MSE 算術平均；fitting 時有 previous-action dropout，並非固定模型在完整 dataset 的再評分。",
+    "reward": "導航環境記錄的 reward 總和；這輪是監督式 imitation/DAgger，沒有用 reward 做 RL 更新。"
+  },
+  "source_code": [
+    "src/fruitfly_sim/flyvis_features.py",
+    "src/fruitfly_sim/visual_env.py",
+    "src/fruitfly_sim/learning_env.py",
+    "src/fruitfly_sim/splat_env.py",
+    "scripts/train_hall.py"
+  ]
+}

@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "run_id": "hall-20260922-replay1",
+  "scene": "TUM Flight Hall",
+  "counts": {
+    "training_samples": 2400,
+    "selected_training_samples": 1600,
+    "observation_dimensions": 78,
+    "action_dimensions": 2,
+    "evaluation_episodes": 64,
+    "trajectory_rows": 4983,
+    "training_fit_endpoints": 2
+  },
+  "selection": {
+    "selected_iteration": 0,
+    "criterion": "validation success, collision, then final distance",
+    "rounds": [
+      {
+        "iteration": 0,
+        "samples": 1600,
+        "final_epoch_mse": 0.009036606177687645,
+        "selected": true
+      },
+      {
+        "iteration": 1,
+        "samples": 2400,
+        "final_epoch_mse": 0.03181381896138191,
+        "selected": false
+      }
+    ],
+    "audit_used_in_selection": false,
+    "source_baseline_candidate": false
+  },
+  "phases": [
+    {
+      "phase": "validation-source",
+      "label": "來源模型：驗證組",
+      "episodes": 8,
+      "successes": 8,
+      "collisions": 0,
+      "success_rate": 1.0,
+      "collision_rate": 0.0,
+      "mean_seconds": 5.049999999999666,
+      "min_polyline_clearance_m": 0.35290110064692737,
+      "min_sampled_clearance_m": 0.3535940723337656,
+      "mean_final_distance_m": 0.2184908803675466,
+      "mean_path_length_m": 3.457638404878725,
+      "failure_reasons": {}
+    },
+    {
+      "phase": "validation-0",
+      "label": "第 0 輪：驗證組（入選）",
+      "episodes": 8,
+      "successes": 8,
+      "collisions": 0,
+      "success_rate": 1.0,
+      "collision_rate": 0.0,
+      "mean_seconds": 5.1749999999996525,
+      "min_polyline_clearance_m": 0.26830081338712963,
+      "min_sampled_clearance_m": 0.2684219965290727,
+      "mean_final_distance_m": 0.21670827320960095,
+      "mean_path_length_m": 3.4448032755017746,
+      "failure_reasons": {}
+    },
+    {
+      "phase": "validation-1",
+      "label": "第 1 輪：驗證組（未入選）",
+      "episodes": 8,
+      "successes": 4,
+      "collisions": 1,
+      "success_rate": 0.5,
+      "collision_rate": 0.125,
+      "mean_seconds": 8.26824999999998,
+      "min_polyline_clearance_m": -0.03707963980618409,
+      "min_sampled_clearance_m": -0.03707963980618409,
+      "mean_final_distance_m": 1.6644249104080164,
+      "mean_path_length_m": 5.181273140861283,
+      "failure_reasons": {
+        "proxy_collision": 1,
+        "timeout": 3
+      }
+    },
+    {
+      "phase": "audit",
+      "label": "入選模型：獨立驗收",
+      "episodes": 20,
+      "successes": 20,
+      "collisions": 0,
+      "success_rate": 1.0,
+      "collision_rate": 0.0,
+      "mean_seconds": 5.19499999999965,
+      "min_polyline_clearance_m": 0.28695449046133226,
+      "min_sampled_clearance_m": 0.2874566178572482,
+      "mean_final_distance_m": 0.22227851445717445,
+      "mean_path_length_m": 3.443929294713654,
+      "failure_reasons": {}
+    },
+    {
+      "phase": "stale-vision",
+      "label": "入選模型：凍結首幀視覺對照",
+      "episodes": 20,
+      "successes": 0,
+      "collisions": 0,
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "mean_seconds": 12.000000000000679,
+      "min_polyline_clearance_m": 0.5750682820289915,
+      "min_sampled_clearance_m": 0.5752488382711572,
+      "mean_final_distance_m": 0.8956267269998299,
+      "mean_path_length_m": 7.072451351815178,
+      "failure_reasons": {
+        "timeout": 20
+      }
+    }
+  ],
+  "audit": {
+    "phase": "audit",
+    "label": "入選模型：獨立驗收",
+    "episodes": 20,
+    "successes": 20,
+    "collisions": 0,
+    "success_rate": 1.0,
+    "collision_rate": 0.0,
+    "mean_seconds": 5.19499999999965,
+    "min_polyline_clearance_m": 0.28695449046133226,
+    "min_sampled_clearance_m": 0.2874566178572482,
+    "mean_final_distance_m": 0.22227851445717445,
+    "mean_path_length_m": 3.443929294713654,
+    "failure_reasons": {}
+  },
+  "paired_control": {
+    "episodes": 20,
+    "same_seeds": true,
+    "live_successes": 20,
+    "stale_successes": 0,
+    "interpretation": "冻结首帧视觉特征的时序对照；不能证明模型获得真实深度。"
+  },
+  "collection": [
+    {
+      "iteration": 0,
+      "seeds": [
+        2000000,
+        2000001,
+        2000002,
+        2000003,
+        2000004,
+        2000005,
+        2000006,
+        2000007,
+        2000008,
+        2000009,
+        2000010,
+        2000011,
+        2000012,
+        2000013,
+        2000014,
+        2000015,
+        2000016,
+        2000017,
+        2000018,
+        2000019,
+        2000020,
+        2000021,
+        2000022,
+        2000023,
+        2000024,
+        2000025,
+        2000026,
+        2000027,
+        2000028,
+        2000029,
+        2000030,
+        2000031
+      ],
+      "samples": 1600,
+      "completed_episodes": 31,
+      "rollout_successes": 31,
+      "rollout_collisions": 0,
+      "teacher_mix": 1.0,
+      "action_noise_std": 0.035,
+      "labels": "Privileged waypoint teacher; absent from policy observations"
+    },
+    {
+      "iteration": 1,
+      "seeds": [
+        2002600,
+        2002601,
+        2002602,
+        2002603,
+        2002604,
+        2002605,
+        2002606,
+        2002607,
+        2002608,
+        2002609,
+        2002610,
+        2002611,
+        2002612,
+        2002613,
+        2002614,
+        2002615
+      ],
+      "samples": 800,
+      "completed_episodes": 15,
+      "rollout_successes": 15,
+      "rollout_collisions": 0,
+      "teacher_mix": 0.0,
+      "action_noise_std": 0.0,
+      "labels": "Privileged waypoint teacher; absent from policy observations"
+    }
+  ],
+  "training": {
+    "algorithm": "supervised head fine-tuning + pure-learner DAgger; not reinforcement learning",
+    "epochs_per_round": 60,
+    "previous_action_dropout": 0.5,
+    "torch_seed": 922,
+    "seed_base": 2000000,
+    "recorded_wall_time_s": 191.44019675254822
+  },
+  "proxy_geometry": {
+    "scene_center": [
+      15.15,
+      -2.95
+    ],
+    "radius_m": 0.45,
+    "bottom_m": 0.0,
+    "top_m": 1.55,
+    "vehicle_envelope_radius_m": 0.09,
+    "aabb_before": [
+      0.0,
+      0.0,
+      0.0,
+      0.45,
+      0.45,
+      0.9
+    ],
+    "aabb_after": [
+      0.0,
+      0.0,
+      0.0,
+      0.45,
+      0.45,
+      0.775
+    ],
+    "rbound": 0.8961724164467461,
+    "correction": "New run only: update compiled broad-phase half-extents to actual geom_size"
+  },
+  "renderer_performance": {
+    "backend": "WebSplatRenderer",
+    "frames": 7431,
+    "median_ms": 9.894875111058354,
+    "p95_ms": 11.541687999852002,
+    "scope": "camera bridge only"
+  },
+  "limitations": [
+    "Only the original static TUM Flight Hall 3DGS, not 4DGS or a new scene.",
+    "One manually fitted enlarged cylinder; no full-hall collision mesh or measured surface depth.",
+    "Goal/velocity-assisted planar navigation, fixed altitude and yaw; not outdoor/long-distance navigation.",
+    "Frozen Flyvis visual circuitry plus a separately trained action head, not whole-brain training.",
+    "Frozen-feature control is a temporal-vision diagnostic, not proof of causal depth use."
+  ],
+  "missing_data": [
+    "完整訓練 RGB 影像序列未有保存；NPZ 只保存 78 維 observation 與 2 維教師 action。",
+    "每筆訓練樣本所屬 episode、seed、時間及原始圖像沒有逐筆保存，不可從匯出 CSV 推算。",
+    "只保存每輪最後一個 epoch 的平均 batch MSE；沒有完整 60-epoch loss 曲線。",
+    "驗證／驗收／對照保存了位置、姿態、時間與結果，沒有保存逐步 policy action／observation。",
+    "沒有全場景碰撞網格、實測深度、校園測試或實機飛行結果。"
+  ],
+  "scope": "完整收錄此次 run 的記錄；phase 間可能使用相同驗證 seeds，不可把 64 次混合測試當作獨立總成功率。"
+}

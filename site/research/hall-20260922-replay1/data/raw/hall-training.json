@@ -1,0 +1,37 @@
+{
+  "task": "hall_avoidance",
+  "run_id": "hall-20260922-replay1",
+  "completed_at": 1790038116.300371,
+  "training_samples": 2400,
+  "selected_iteration": 0,
+  "selected_by": "validation success, collision, then final distance",
+  "audit_seeds_used_in_training_or_selection": false,
+  "source_checkpoint_unchanged": true,
+  "source_checkpoint_sha256": "6c8c09bcc4a494596b47f17eb103d10e1f9b79c875bf26e048602bafc0f954ac",
+  "source_checkpoint": "checkpoints/missions/hall-20260921-fast/hall-visual-head.pt",
+  "source_validation_score": [
+    1.0,
+    -0.0,
+    -0.2184908803675466
+  ],
+  "selected_validation_score": [
+    1.0,
+    -0.0,
+    -0.21670827320960095
+  ],
+  "selected_validation_regressed": false,
+  "comparison_scope": "Same validation seeds only; source baseline never selected as a trained candidate",
+  "checkpoint": "checkpoints/missions/hall-20260922-replay1/hall-visual-head.pt",
+  "success_rate": 1.0,
+  "collision_rate": 0.0,
+  "stale_vision_success_rate": 0.0,
+  "stale_vision_collision_rate": 0.0,
+  "passed": true,
+  "limitations": [
+    "Only the original static TUM Flight Hall 3DGS, not 4DGS or a new scene.",
+    "One manually fitted enlarged cylinder; no full-hall collision mesh or measured surface depth.",
+    "Goal/velocity-assisted planar navigation, fixed altitude and yaw; not outdoor/long-distance navigation.",
+    "Frozen Flyvis visual circuitry plus a separately trained action head, not whole-brain training.",
+    "Frozen-feature control is a temporal-vision diagnostic, not proof of causal depth use."
+  ]
+}

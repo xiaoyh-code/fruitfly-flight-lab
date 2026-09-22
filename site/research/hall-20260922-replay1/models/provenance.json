@@ -1,0 +1,100 @@
+{
+  "operation": "Project-root absolute path in metadata changed to project-relative path; tensors unchanged.",
+  "architecture": "Linear(78,128), Tanh, Linear(128,128), Tanh, Linear(128,2), Tanh",
+  "scope": "Learned action heads only; frozen pretrained Flyvis network is not bundled.",
+  "checkpoints": [
+    {
+      "file": "models/selected-round-0.pt",
+      "source": "checkpoints/missions/hall-20260922-replay1/hall-visual-head.pt",
+      "source_sha256": "69c78a716045fc0a24b9faad1bf21038d68c7da4c3bba7097f30f4f8b13b946d",
+      "packaged_sha256": "9d19c748edd43e9c517c9f10146be819446322b01ae7b0bb61b81da4c5ae609b",
+      "state_dict_bit_exact": true,
+      "metadata": {
+        "input_dimension": 78,
+        "architecture": [
+          78,
+          128,
+          128,
+          2
+        ],
+        "flyvis_frozen": true,
+        "scene": "TUM Flight Hall",
+        "source_checkpoint": "checkpoints/missions/hall-20260921-fast/hall-visual-head.pt",
+        "source_checkpoint_sha256": "6c8c09bcc4a494596b47f17eb103d10e1f9b79c875bf26e048602bafc0f954ac",
+        "initialization": "Source checkpoint weights; new optimizer and new rollout data",
+        "run_id": "hall-20260922-replay1",
+        "previous_action_dropout": 0.5,
+        "torch_seed": 922,
+        "seed_base": 2000000,
+        "training_samples": 1600,
+        "iteration": 0,
+        "validation": [
+          1.0,
+          -0.0,
+          -0.21670827320960095
+        ]
+      }
+    },
+    {
+      "file": "models/rejected-round-1.pt",
+      "source": "checkpoints/missions/hall-20260922-replay1/hall-head-round-1.pt",
+      "source_sha256": "66acda7eceeda7d8bf1392d48037732df8b8dd7ca30c8e65785523567667d0ef",
+      "packaged_sha256": "15b00bcb5a9022531fa451e755ea99d81f4c40397b516591ce4a873ffadc4bf5",
+      "state_dict_bit_exact": true,
+      "metadata": {
+        "input_dimension": 78,
+        "architecture": [
+          78,
+          128,
+          128,
+          2
+        ],
+        "flyvis_frozen": true,
+        "scene": "TUM Flight Hall",
+        "source_checkpoint": "checkpoints/missions/hall-20260921-fast/hall-visual-head.pt",
+        "source_checkpoint_sha256": "6c8c09bcc4a494596b47f17eb103d10e1f9b79c875bf26e048602bafc0f954ac",
+        "initialization": "Source checkpoint weights; new optimizer and new rollout data",
+        "run_id": "hall-20260922-replay1",
+        "previous_action_dropout": 0.5,
+        "torch_seed": 922,
+        "seed_base": 2000000,
+        "training_samples": 2400,
+        "iteration": 1,
+        "validation": [
+          0.5,
+          -0.125,
+          -1.6644249104080164
+        ]
+      }
+    },
+    {
+      "file": "models/source-baseline.pt",
+      "source": "checkpoints/missions/hall-20260921-fast/hall-visual-head.pt",
+      "source_sha256": "6c8c09bcc4a494596b47f17eb103d10e1f9b79c875bf26e048602bafc0f954ac",
+      "packaged_sha256": "b2134685720b09b1e7b93103ec639d1bb94daa0701bfeb9656655bb0fc8f76fa",
+      "state_dict_bit_exact": true,
+      "metadata": {
+        "input_dimension": 78,
+        "architecture": [
+          78,
+          128,
+          128,
+          2
+        ],
+        "flyvis_frozen": true,
+        "scene": "TUM Flight Hall",
+        "source_checkpoint": "checkpoints/training/M4-visual-head.pt",
+        "source_checkpoint_sha256": "6ec54d3867a86073fd077ecdaa10efc7a3a7faf7ec11a352ebd528459caa6b06",
+        "run_id": "hall-20260921-fast",
+        "previous_action_dropout": 0.5,
+        "training_samples": 1600,
+        "iteration": 0,
+        "validation": [
+          1.0,
+          -0.0,
+          -0.20714904682269572
+        ]
+      }
+    }
+  ]
+}

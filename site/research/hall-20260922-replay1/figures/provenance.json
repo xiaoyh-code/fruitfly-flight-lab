@@ -1,0 +1,257 @@
+{
+  "version": 1,
+  "run_id": "hall-20260922-replay1",
+  "created_at": "2026-09-22T01:18:30.457116+00:00",
+  "script": "scripts/plot_student_results.py",
+  "script_sha256": "d7ad6f1a205b0fab3bb1239c55c23589b763cd0b56fa5cbe921b99fc55a2bc1c",
+  "dependencies": {
+    "matplotlib": "3.11.2",
+    "numpy": "1.26.4"
+  },
+  "sources": [
+    {
+      "path": "outputs/missions/hall-20260922-replay1/history.json",
+      "sha256": "0044481487938ad24419ba7aa96dcfa12fc57837bd4c9759111a419a5d69eeae"
+    },
+    {
+      "path": "outputs/missions/hall-20260922-replay1/run-config.json",
+      "sha256": "395cc5196d6c346cdec28ca5515cc5db8f4d4b602a8aed1846a0886e9a6dae3f"
+    },
+    {
+      "path": "outputs/missions/hall-20260922-replay1/seed-manifest.json",
+      "sha256": "e6aec00e7e39b084e50dee4958c84a6bd7e14c30f49fbbe980e4def02e1ec758"
+    },
+    {
+      "path": "outputs/missions/hall-20260922-replay1/hall-training.json",
+      "sha256": "26554256a389af12a3099f34fddd503d3c0c283c57cab900a3a9a7b5e8bf4869"
+    },
+    {
+      "path": "outputs/missions/hall-20260922-replay1/hall_avoidance-validation-source.json",
+      "sha256": "7831e96944b4f2a65fcaf488ddb5b04743d10613053c26835175e53a4b91acb6"
+    },
+    {
+      "path": "outputs/missions/hall-20260922-replay1/hall_avoidance-validation-0.json",
+      "sha256": "2063c6c231a07b26ab9b23aabe3b638dea18c620a8bc10bdbd4001b645e70d45"
+    },
+    {
+      "path": "outputs/missions/hall-20260922-replay1/hall_avoidance-validation-1.json",
+      "sha256": "da750b58e019b17e46a421bf502986a150c9152ef753175590f630e1fda9f857"
+    },
+    {
+      "path": "outputs/missions/hall-20260922-replay1/hall_avoidance-audit.json",
+      "sha256": "da53b682d68097d4f5d5c5a5cf973c05151373226bb41292676ededd4c31e1ec"
+    },
+    {
+      "path": "outputs/missions/hall-20260922-replay1/hall_avoidance-stale-vision.json",
+      "sha256": "8c5d013b6f94327432dda0262b180dc2f3a4e78ae058c1189d80e84fd68ab101"
+    }
+  ],
+  "method_sources": [
+    {
+      "path": "scripts/export_hall_replay.py",
+      "sha256": "1ad2bdda46018eed899008b39be63e80ffef851294a8c4844a64edea96be158d"
+    },
+    {
+      "path": "scripts/train_hall.py",
+      "sha256": "e3d98a89d5da4d959ae9851b30eae930f881c01eba07802eccf062c2e381e803"
+    },
+    {
+      "path": "src/fruitfly_sim/splat_env.py",
+      "sha256": "67a1ad49bc3254ba62f9bf30a71744d478b674c7ce0be89135dbd69fa779352a"
+    }
+  ],
+  "formulas": {
+    "clearance": "min over XY trajectory segments of distance(segment, [0, 0.2]) - 0.45 - 0.09; segment projection is clamped to [0,1]",
+    "phase_outcomes": "counts of recorded episode success / collision flags; remaining failed episodes verified to be timeouts",
+    "training_loss": "history.json fit.loss = arithmetic mean of minibatch MSE values during the final training epoch, including previous-action dropout"
+  },
+  "verified": {
+    "disjoint_training_validation_audit_seeds": true,
+    "matched_candidate_validation_seeds": true,
+    "matched_live_stale_audit_seeds": true,
+    "all_audit_polyline_clearances_recomputed": true
+  },
+  "measurements": {
+    "phase_outcomes": {
+      "validation-source": {
+        "episodes": 8,
+        "successes": 8,
+        "collisions": 0,
+        "timeouts": 0
+      },
+      "validation-0": {
+        "episodes": 8,
+        "successes": 8,
+        "collisions": 0,
+        "timeouts": 0
+      },
+      "validation-1": {
+        "episodes": 8,
+        "successes": 4,
+        "collisions": 1,
+        "timeouts": 3
+      },
+      "audit": {
+        "episodes": 20,
+        "successes": 20,
+        "collisions": 0,
+        "timeouts": 0
+      },
+      "stale-vision": {
+        "episodes": 20,
+        "successes": 0,
+        "collisions": 0,
+        "timeouts": 20
+      }
+    },
+    "min_clearance_m": 0.28695449046133226,
+    "min_clearance_seed": 2006213,
+    "audit_clearance_by_seed": [
+      {
+        "seed": 2006208,
+        "min_polyline_clearance_m": 0.3936688078979511
+      },
+      {
+        "seed": 2006209,
+        "min_polyline_clearance_m": 0.42094529117362545
+      },
+      {
+        "seed": 2006210,
+        "min_polyline_clearance_m": 0.448108642406599
+      },
+      {
+        "seed": 2006211,
+        "min_polyline_clearance_m": 0.37753548166077244
+      },
+      {
+        "seed": 2006212,
+        "min_polyline_clearance_m": 0.2993017083112691
+      },
+      {
+        "seed": 2006213,
+        "min_polyline_clearance_m": 0.28695449046133226
+      },
+      {
+        "seed": 2006214,
+        "min_polyline_clearance_m": 0.5295291864597489
+      },
+      {
+        "seed": 2006215,
+        "min_polyline_clearance_m": 0.31588788841052884
+      },
+      {
+        "seed": 2006216,
+        "min_polyline_clearance_m": 0.3661532897179578
+      },
+      {
+        "seed": 2006217,
+        "min_polyline_clearance_m": 0.3884722094986328
+      },
+      {
+        "seed": 2006218,
+        "min_polyline_clearance_m": 0.5067025312093114
+      },
+      {
+        "seed": 2006219,
+        "min_polyline_clearance_m": 0.3369953408771439
+      },
+      {
+        "seed": 2006220,
+        "min_polyline_clearance_m": 0.4426863269807002
+      },
+      {
+        "seed": 2006221,
+        "min_polyline_clearance_m": 0.3420361824166064
+      },
+      {
+        "seed": 2006222,
+        "min_polyline_clearance_m": 0.43599388720968024
+      },
+      {
+        "seed": 2006223,
+        "min_polyline_clearance_m": 0.5266123040297597
+      },
+      {
+        "seed": 2006224,
+        "min_polyline_clearance_m": 0.39147350552666893
+      },
+      {
+        "seed": 2006225,
+        "min_polyline_clearance_m": 0.30687870409670215
+      },
+      {
+        "seed": 2006226,
+        "min_polyline_clearance_m": 0.5173623909197245
+      },
+      {
+        "seed": 2006227,
+        "min_polyline_clearance_m": 0.3241822477777072
+      }
+    ],
+    "fits": [
+      {
+        "task": "hall_avoidance",
+        "phase": "fit",
+        "iteration": 0,
+        "samples": 1600,
+        "loss": 0.009036606177687645
+      },
+      {
+        "task": "hall_avoidance",
+        "phase": "fit",
+        "iteration": 1,
+        "samples": 2400,
+        "loss": 0.03181381896138191
+      }
+    ]
+  },
+  "limitations": [
+    "One approximate cylinder only; no full-hall collision mesh.",
+    "Planar, fixed-altitude navigation with ideal goal and velocity inputs.",
+    "Flyvis weights were frozen; the separate action head was trained.",
+    "Per-epoch training losses were not saved.",
+    "The positive polyline margin is not a proof about all physics ticks or real-world safety."
+  ],
+  "figures": [
+    {
+      "png": "phase-outcomes.png",
+      "svg": "phase-outcomes.svg",
+      "width_px": 2048,
+      "height_px": 1168,
+      "sha256": {
+        "png": "f545e1915e239ceca2120facca87a8ae08c305f4de5ca98742da523644b19c09",
+        "svg": "ce7c132aebbc003b1308d708a78de1a42edcd2da9057dbbc544d2e8cd84e2342"
+      }
+    },
+    {
+      "png": "audit-clearance.png",
+      "svg": "audit-clearance.svg",
+      "width_px": 2048,
+      "height_px": 1168,
+      "sha256": {
+        "png": "bb888f8dde9fa969053ede8a24d8940f77be0193d6f8372b2bc06f6801f87e26",
+        "svg": "18aa3d5110e30d0a560c98d5fef868395eda7cbbdce4e1b6df76dc1773dc0f77"
+      }
+    },
+    {
+      "png": "audit-trajectories.png",
+      "svg": "audit-trajectories.svg",
+      "width_px": 2048,
+      "height_px": 1296,
+      "sha256": {
+        "png": "e63b2d0cbea29dada9049e4445e24cac2b43de7f179bdeb4b7c3b7070c3a203b",
+        "svg": "c24a29ccd036ff5ce5679812e137e55afaa9b26093a48cd8d0118c98aa3826f2"
+      }
+    },
+    {
+      "png": "training-fit-loss.png",
+      "svg": "training-fit-loss.svg",
+      "width_px": 2048,
+      "height_px": 1168,
+      "sha256": {
+        "png": "1d1974e6c0c16baa7ae9067f0992f8d6424ef73d2cf6d3f6d5073880a7c71f2f",
+        "svg": "f96f8408ffe1bb4671366c6adb693d68d2a2904f94b3d3f43d290273a39e2570"
+      }
+    }
+  ]
+}

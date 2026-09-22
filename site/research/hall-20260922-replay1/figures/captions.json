@@ -1,0 +1,49 @@
+{
+  "run_id": "hall-20260922-replay1",
+  "figures": [
+    {
+      "id": "phase-outcomes",
+      "title_zh": "模型選擇與獨立驗收",
+      "title_en": "Model selection and held-out evaluation",
+      "caption_zh": "左圖使用同一組 8 個驗證種子：來源模型及第 0 輪均 8/8 到達；第 1 輪只有 4/8 到達、1 次代理碰撞及 3 次逾時，因此保留第 0 輪。右圖是另一組 20 個未用於訓練或選模的種子：即時視覺特徵 20/20 到達；固定首幀視覺特徵則 0/20 到達、全部逾時。兩組樣本分開展示；結果不能解讀成每一輪訓練都改善，也不能證明模型已學會真實深度。",
+      "caption_en": "Validation used the same 8 seeds for all candidates; held-out tests used a separate set of 20 seeds. Round 0 was selected on validation. Stale-feature failures diagnose dependence on temporal visual input, not causal depth estimation.",
+      "png": "phase-outcomes.png",
+      "svg": "phase-outcomes.svg",
+      "width_px": 2048,
+      "height_px": 1168
+    },
+    {
+      "id": "audit-clearance",
+      "title_zh": "20 次驗收的最小水平淨距",
+      "title_en": "Minimum horizontal clearance in each audit episode",
+      "caption_zh": "每條柱代表一次驗收，以約 10 Hz 儲存位置之間的直線段計算與代理圓柱的最近水平距離，再減 0.45 m 障礙半徑及 0.09 m 保守機身包絡半徑。最小值為 0.286954490 m（種子 2006213）。正值只表示這條折線與此水平代理沒有相交，並非全工廠或真實飛行安全保證。",
+      "caption_en": "Each bar is the minimum distance from recorded XY polyline segments to the proxy centre minus the combined 0.54 m radius. This calculation covers the interpolated replay, not every physics tick or every Hall surface.",
+      "png": "audit-clearance.png",
+      "svg": "audit-clearance.svg",
+      "width_px": 2048,
+      "height_px": 1168
+    },
+    {
+      "id": "audit-trajectories",
+      "title_zh": "20 次驗收的俯視路徑",
+      "title_en": "All 20 held-out XY trajectories",
+      "caption_zh": "藍線是局部 MuJoCo 座標中的實際記錄路徑，紫線為最小淨距的一次。實線圓柱半徑 0.45 m；紅虛線 0.54 m 額外包含 0.09 m 的保守機身包絡，並非另一個實體障礙。起點及目標的 X 固定為 −1.6／+1.6 m，Y 在 ±0.22 m 內隨機。終點只需距目標小於 0.25 m，因此不一定與星形目標重合。這是定高局部避障，未驗證整個工廠碰撞。",
+      "caption_en": "Recorded XY paths with start, goal and endpoint markers. The dashed inflated radius includes the conservative vehicle envelope. Goals are reached within a 0.25 m tolerance; altitude is approximately 1.2 m.",
+      "png": "audit-trajectories.png",
+      "svg": "audit-trajectories.svg",
+      "width_px": 2048,
+      "height_px": 1296
+    },
+    {
+      "id": "training-fit-loss",
+      "title_zh": "已保存的訓練誤差",
+      "title_en": "Recorded final-epoch training loss",
+      "caption_zh": "現有紀錄只保存兩次訓練各自最後一個 epoch 的平均 batch MSE，數值為 0.0090366062 及 0.0318138190；沒有逐 epoch 誤差曲線。兩次訓練分別使用累計 1,600 及 2,400 筆樣本，均跑 60 個 epoch，並以 50% 機率丟棄上一動作輸入。這是不同資料集合上的訓練誤差，不能當作獨立測試準確率；最終採用第 0 輪權重。",
+      "caption_en": "Only final-epoch mean batch MSE was saved for the two fits. They used different cumulative datasets, so these two bars are neither an epoch learning curve nor independent test accuracy.",
+      "png": "training-fit-loss.png",
+      "svg": "training-fit-loss.svg",
+      "width_px": 2048,
+      "height_px": 1168
+    }
+  ]
+}

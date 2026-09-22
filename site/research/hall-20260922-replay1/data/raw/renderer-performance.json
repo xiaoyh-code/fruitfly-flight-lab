@@ -1,0 +1,7 @@
+{
+  "backend": "WebSplatRenderer",
+  "frames": 7431,
+  "median_ms": 9.894875111058354,
+  "p95_ms": 11.541687999852002,
+  "scope": "camera bridge only"
+}

@@ -1,0 +1,3 @@
+﻿iteration,samples,completed_episodes,rollout_successes,rollout_collisions,teacher_mix,action_noise_std
+0,1600,31,31,0,1.0,0.035
+1,800,15,15,0,0.0,0.0

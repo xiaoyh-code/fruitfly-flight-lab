@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "exporter": "scripts/export_student_data.py",
+  "run_id": "hall-20260922-replay1",
+  "transformations": [
+    "NPZ byte-for-byte copy",
+    "float32 values expanded to lossless CSV decimal strings",
+    "JSON personal absolute paths replaced by project-relative paths",
+    "All five evaluation phases retained, including rejected round and control failures"
+  ],
+  "originals": [
+    {
+      "path": "outputs/missions/hall-20260922-replay1/run-config.json",
+      "sha256": "395cc5196d6c346cdec28ca5515cc5db8f4d4b602a8aed1846a0886e9a6dae3f",
+      "bytes": 2388
+    },
+    {
+      "path": "outputs/missions/hall-20260922-replay1/hall-training.json",
+      "sha256": "26554256a389af12a3099f34fddd503d3c0c283c57cab900a3a9a7b5e8bf4869",
+      "bytes": 1623
+    },
+    {
+      "path": "outputs/missions/hall-20260922-replay1/history.json",
+      "sha256": "0044481487938ad24419ba7aa96dcfa12fc57837bd4c9759111a419a5d69eeae",
+      "bytes": 2475
+    },
+    {
+      "path": "outputs/missions/hall-20260922-replay1/seed-manifest.json",
+      "sha256": "e6aec00e7e39b084e50dee4958c84a6bd7e14c30f49fbbe980e4def02e1ec758",
+      "bytes": 2382
+    },
+    {
+      "path": "outputs/missions/hall-20260922-replay1/renderer-performance.json",
+      "sha256": "25949ab9226efc61a855a18445d3e70cd84a06165e4635ab34eb937b0249ed7a",
+      "bytes": 153
+    },
+    {
+      "path": "outputs/missions/hall-20260922-replay1/hall_avoidance-validation-source.json",
+      "sha256": "7831e96944b4f2a65fcaf488ddb5b04743d10613053c26835175e53a4b91acb6",
+      "bytes": 125895
+    },
+    {
+      "path": "outputs/missions/hall-20260922-replay1/hall_avoidance-validation-0.json",
+      "sha256": "2063c6c231a07b26ab9b23aabe3b638dea18c620a8bc10bdbd4001b645e70d45",
+      "bytes": 128721
+    },
+    {
+      "path": "outputs/missions/hall-20260922-replay1/hall_avoidance-validation-1.json",
+      "sha256": "da750b58e019b17e46a421bf502986a150c9152ef753175590f630e1fda9f857",
+      "bytes": 199475
+    },
+    {
+      "path": "outputs/missions/hall-20260922-replay1/hall_avoidance-audit.json",
+      "sha256": "da53b682d68097d4f5d5c5a5cf973c05151373226bb41292676ededd4c31e1ec",
+      "bytes": 320693
+    },
+    {
+      "path": "outputs/missions/hall-20260922-replay1/hall_avoidance-stale-vision.json",
+      "sha256": "8c5d013b6f94327432dda0262b180dc2f3a4e78ae058c1189d80e84fd68ab101",
+      "bytes": 711746
+    },
+    {
+      "path": "outputs/missions/hall-20260922-replay1/hall-demonstrations.npz",
+      "sha256": "15177311f5e28900f7d1b544f8e1f44dc1361119e486e3e74dc5f76e88d2121f",
+      "bytes": 707134
+    },
+    {
+      "path": "checkpoints/missions/hall-20260921-fast/hall-visual-head.pt",
+      "sha256": "6c8c09bcc4a494596b47f17eb103d10e1f9b79c875bf26e048602bafc0f954ac",
+      "bytes": 111233
+    },
+    {
+      "path": "checkpoints/missions/hall-20260922-replay1/hall-visual-head.pt",
+      "sha256": "69c78a716045fc0a24b9faad1bf21038d68c7da4c3bba7097f30f4f8b13b946d",
+      "bytes": 111361
+    },
+    {
+      "path": "checkpoints/missions/hall-20260922-replay1/hall-head-round-0.pt",
+      "sha256": "f76fb1cf539a4dc0555253b834a2cb281be980b0fb234f2cb5926f3bd71adbae",
+      "bytes": 111373
+    },
+    {
+      "path": "checkpoints/missions/hall-20260922-replay1/hall-head-round-1.pt",
+      "sha256": "66acda7eceeda7d8bf1392d48037732df8b8dd7ca30c8e65785523567667d0ef",
+      "bytes": 111373
+    }
+  ],
+  "source_hashes_recorded_at_training": {
+    "scripts/train_hall.py": "e3d98a89d5da4d959ae9851b30eae930f881c01eba07802eccf062c2e381e803",
+    "src/fruitfly_sim/splat_env.py": "67a1ad49bc3254ba62f9bf30a71744d478b674c7ce0be89135dbd69fa779352a",
+    "src/fruitfly_sim/flyvis_features.py": "f1b0de9b92ae26a1ed7fc30d465bf9302b2fac01b9f111c08e3771afeab6ca71"
+  },
+  "generated_files": [
+    {
+      "path": "audit_paired_control.csv",
+      "bytes": 4096,
+      "sha256": "eddfa6ac37f860bd22e94d0bd5d8849aa72375e057722f6d96422addf601beaf"
+    },
+    {
+      "path": "checkpoint_hashes.json",
+      "bytes": 854,
+      "sha256": "5cd18d1f8b2dce135092e7e98b71ddfce0208a7d90631930667e661213b1d9ad"
+    },
+    {
+      "path": "collection_history.csv",
+      "bytes": 156,
+      "sha256": "d114c9e8c948dd43556d932bb96c08c7d4dc88c17b48f55a791f774544a7894f"
+    },
+    {
+      "path": "episodes.csv",
+      "bytes": 11617,
+      "sha256": "d73514097cc94cd546917a3d006cd9f8fc49060f6246e6553de59075422ab8a2"
+    },
+    {
+      "path": "feature_dictionary.json",
+      "bytes": 31031,
+      "sha256": "56828ed4d6c66f04bb84310283785e29db5c9133251a620fc13002e48d9cac18"
+    },
+    {
+      "path": "hall-demonstrations.npz",
+      "bytes": 707134,
+      "sha256": "15177311f5e28900f7d1b544f8e1f44dc1361119e486e3e74dc5f76e88d2121f"
+    },
+    {
+      "path": "raw/hall-training.json",
+      "bytes": 1551,
+      "sha256": "627eedde17447e49a42061ca0f557e626c095d01621a5f38d6b41380dcf10ae0"
+    },
+    {
+      "path": "raw/hall_avoidance-audit.json",
+      "bytes": 320693,
+      "sha256": "da53b682d68097d4f5d5c5a5cf973c05151373226bb41292676ededd4c31e1ec"
+    },
+    {
+      "path": "raw/hall_avoidance-stale-vision.json",
+      "bytes": 711746,
+      "sha256": "8c5d013b6f94327432dda0262b180dc2f3a4e78ae058c1189d80e84fd68ab101"
+    },
+    {
+      "path": "raw/hall_avoidance-validation-0.json",
+      "bytes": 128721,
+      "sha256": "2063c6c231a07b26ab9b23aabe3b638dea18c620a8bc10bdbd4001b645e70d45"
+    },
+    {
+      "path": "raw/hall_avoidance-validation-1.json",
+      "bytes": 199475,
+      "sha256": "da750b58e019b17e46a421bf502986a150c9152ef753175590f630e1fda9f857"
+    },
+    {
+      "path": "raw/hall_avoidance-validation-source.json",
+      "bytes": 125895,
+      "sha256": "7831e96944b4f2a65fcaf488ddb5b04743d10613053c26835175e53a4b91acb6"
+    },
+    {
+      "path": "raw/history.json",
+      "bytes": 2475,
+      "sha256": "0044481487938ad24419ba7aa96dcfa12fc57837bd4c9759111a419a5d69eeae"
+    },
+    {
+      "path": "raw/renderer-performance.json",
+      "bytes": 153,
+      "sha256": "25949ab9226efc61a855a18445d3e70cd84a06165e4635ab34eb937b0249ed7a"
+    },
+    {
+      "path": "raw/run-config.json",
+      "bytes": 2352,
+      "sha256": "0ef0b506f8896a2b58609f0743120af49dc5602a178f6c367a7bf9d0e1b5e0cf"
+    },
+    {
+      "path": "raw/seed-manifest.json",
+      "bytes": 2382,
+      "sha256": "e6aec00e7e39b084e50dee4958c84a6bd7e14c30f49fbbe980e4def02e1ec758"
+    },
+    {
+      "path": "seed_manifest.json",
+      "bytes": 2382,
+      "sha256": "e6aec00e7e39b084e50dee4958c84a6bd7e14c30f49fbbe980e4def02e1ec758"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 7764,
+      "sha256": "bb89971dae1a57d0bc06af8cfee9619501aab2b080c8a05822aa993acdcd84f6"
+    },
+    {
+      "path": "training_history.csv",
+      "bytes": 115,
+      "sha256": "1c706cb15982bf0d9ce388fe8d82429dca8a46dda3ffe7a97c448bccd683db59"
+    },
+    {
+      "path": "training_samples.csv",
+      "bytes": 3926544,
+      "sha256": "a9984c987a207788ec4f7175673e90f4b668418a195e6a360a313ee7bd982db1"
+    },
+    {
+      "path": "trajectories.csv",
+      "bytes": 928297,
+      "sha256": "69ee3447ee03db03ef107677e78542e9e548fadedc5569a0e407ab4f4ca93dcc"
+    }
+  ]
+}

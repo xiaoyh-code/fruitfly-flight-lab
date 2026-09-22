@@ -1,0 +1,26 @@
+[
+  {
+    "path": "checkpoints/missions/hall-20260921-fast/hall-visual-head.pt",
+    "sha256": "6c8c09bcc4a494596b47f17eb103d10e1f9b79c875bf26e048602bafc0f954ac",
+    "bytes": 111233,
+    "role": "source"
+  },
+  {
+    "path": "checkpoints/missions/hall-20260922-replay1/hall-visual-head.pt",
+    "sha256": "69c78a716045fc0a24b9faad1bf21038d68c7da4c3bba7097f30f4f8b13b946d",
+    "bytes": 111361,
+    "role": "selected"
+  },
+  {
+    "path": "checkpoints/missions/hall-20260922-replay1/hall-head-round-0.pt",
+    "sha256": "f76fb1cf539a4dc0555253b834a2cb281be980b0fb234f2cb5926f3bd71adbae",
+    "bytes": 111373,
+    "role": "candidate"
+  },
+  {
+    "path": "checkpoints/missions/hall-20260922-replay1/hall-head-round-1.pt",
+    "sha256": "66acda7eceeda7d8bf1392d48037732df8b8dd7ca30c8e65785523567667d0ef",
+    "bytes": 111373,
+    "role": "candidate"
+  }
+]
