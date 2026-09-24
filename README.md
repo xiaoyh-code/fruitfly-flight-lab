@@ -14,6 +14,10 @@ The two guides have matching sections, explanations and identical commands/code 
 
 兩版指南逐節對照，說明及指令一一對應。由第一步開始，每次執行一行。使用 **64 位元 Python 3.12**，原始實驗版本為 **3.12.10**。
 
+**Windows CPU verification — 2026-09-24:** [native Windows CI passed](https://github.com/xiaoyh-code/fruitfly-flight-lab/actions/runs/35945279968) on Python 3.12.10: fresh installation, actual Flyvis inference, **53 tests passed / 9 skipped**, and all five waypoint targets reached without collision. Tested source revision: `33e34f2`. Interactive graphics and complete Hall training still require the student's local render/bridge checks.
+
+**Windows CPU 驗證 — 2026-09-24：** [原生 Windows 自動測試通過](https://github.com/xiaoyh-code/fruitfly-flight-lab/actions/runs/35945279968)，使用 Python 3.12.10，完成全新安裝、真正 Flyvis 推論、**53 項測試通過／9 項略過**，以及五個航點全部到達、零碰撞。測試程式版本：`33e34f2`。互動圖像及完整工廠訓練仍需在學生電腦完成渲染／相機服務檢查。
+
 ## What to open / 應該開啟哪一部分
 
 | Purpose / 用途 | Entry / 入口 |
