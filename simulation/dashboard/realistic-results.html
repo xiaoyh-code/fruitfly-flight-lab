@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>真實場景 · 第一次驗收 — FruitFly</title>
+  <style>
+    :root{--paper:#f3f0e8;--ink:#242e28;--muted:#6c746b;--line:#d3d4c9;--olive:#576846;--rust:#a34a31;--pale:#e5e8d9;--mono:"SFMono-Regular","Menlo",monospace}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Avenir Next","PingFang TC","Heiti TC",sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-underline-offset:4px}a:focus-visible,button:focus-visible,summary:focus-visible,video:focus-visible{outline:3px solid var(--rust);outline-offset:4px}main{max-width:920px;margin:auto;padding:34px 38px 28px}.masthead{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-bottom:16px;border-bottom:1px solid var(--ink);font:10px var(--mono);letter-spacing:.14em}.issue{color:var(--olive)}header{padding:32px 0 23px}h1{font-family:"Iowan Old Style","Songti TC",serif;font-size:42px;font-weight:500;line-height:1.25;letter-spacing:-.04em;margin:0 0 15px}h1 span{white-space:nowrap}.deck{font-size:14px;line-height:1.9;color:var(--muted);margin:0;max-width:680px}.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:19px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:10px;line-height:1.3;letter-spacing:.02em}.tag.engine{background:var(--ink);color:var(--paper);border-color:var(--ink)}.tag.pending{color:var(--rust);border-color:#caa48f}.statusline{display:flex;align-items:center;gap:9px;font-size:11px;color:var(--muted);margin:0 0 14px;min-height:18px}.dot{width:6px;height:6px;flex:none;border-radius:50%;background:var(--olive)}.statusline.error .dot{background:var(--rust)}.statusline.error{color:var(--rust)}.capture{margin:0}.capture-head{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:9px;font-size:11px}.capture-head .label{font-weight:600}.smallmono{font:9px var(--mono);letter-spacing:.08em;color:var(--muted)}.screen{position:relative;background:#17221c;aspect-ratio:16/10;display:grid;place-items:center;border:1px solid #17221c;overflow:hidden}.screen video{display:block;width:100%;height:100%;object-fit:contain;position:absolute;inset:0}.media-fallback{max-width:340px;padding:30px;text-align:center;color:#c4cbbc;font-size:12px;line-height:1.9;z-index:1;pointer-events:none}.media-fallback b{display:block;font-family:"Iowan Old Style","Songti TC",serif;font-weight:400;font-size:24px;color:#ebeddf;margin-bottom:9px}.caption{font-size:11px;line-height:1.8;color:var(--muted);margin:9px 0 0}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:17px}.action{display:flex;justify-content:space-between;gap:25px;align-items:center;font-size:12px;text-decoration:none;min-height:42px;padding:10px 15px;border:1px solid var(--ink)}.action.primary{background:var(--ink);color:var(--paper)}.action:hover{background:var(--pale);color:var(--ink)}.action.primary:hover{background:var(--olive);color:white}.section{margin-top:33px;padding-top:18px;border-top:1px solid var(--ink)}.section-title{display:flex;justify-content:space-between;gap:16px;align-items:baseline;margin-bottom:15px}h2{font-family:"Iowan Old Style","Songti TC",serif;font-size:23px;font-weight:500;letter-spacing:-.02em;margin:0}.index{font:10px var(--mono);color:var(--olive);margin-right:8px;vertical-align:middle}.section-note{font-size:10px;color:var(--muted);white-space:nowrap}.verdict{font-size:14px;line-height:1.85;padding:12px 15px;border-left:2px solid var(--olive);background:var(--pale);margin:0 0 17px}.verdict.caution{border-color:var(--rust);background:#ede5d9}.table-wrap{overflow-x:auto;scrollbar-width:thin}table{width:100%;border-collapse:collapse;text-align:right;font-size:12px;font-variant-numeric:tabular-nums}th{font-size:10px;color:var(--muted);font-weight:500;white-space:nowrap;padding:0 6px 10px}th:first-child,td:first-child{text-align:left;padding-left:0}th:last-child,td:last-child{padding-right:0}td{padding:13px 6px;border-top:1px solid var(--line)}td:first-child{min-width:125px}.row-title{font-weight:600;font-size:12px}.row-caption{display:block;color:var(--muted);font-size:9px;line-height:1.6;font-weight:400;margin-top:2px}.number{font-family:var(--mono);font-size:13px}.success{color:var(--olive)}.collision{color:var(--rust)}.missing{color:#8f948a}.pending-row .row-title{color:var(--muted)}.footnote{font-size:11px;color:var(--muted);line-height:1.85;margin:12px 0 0}.residual{color:var(--rust)}.readout-lead{font-size:12px;line-height:1.85;color:var(--muted);margin:0 0 19px}.method-line{font-size:10px;line-height:1.7;letter-spacing:.03em;color:var(--olive);margin:16px 0 0}.scope{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;padding:16px 0 0;border-top:1px solid var(--line);margin-top:21px}.scope strong{display:block;font:22px var(--mono);letter-spacing:-.04em;margin-bottom:5px}.scope span{display:block;font-size:10px;line-height:1.6;color:var(--muted)}details{border-top:1px solid var(--line);margin-top:23px;padding-top:13px}summary{cursor:pointer;font-size:12px;line-height:1.7;min-height:30px}details figure{margin:14px 0 0}details img{max-width:100%;height:auto;display:block;background:#e7e6de;border:1px solid var(--line)}details .image-missing{color:var(--muted);font-size:11px;line-height:1.8;margin:10px 0}.scope-copy{font-size:12px;line-height:1.9;color:var(--muted);margin:0}.scope-copy strong{font-weight:600;color:var(--ink)}footer{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;border-top:1px solid var(--ink);margin-top:28px;padding-top:14px;color:var(--muted);font-size:10px;line-height:1.8}.refresh{appearance:none;border:0;background:none;color:var(--ink);font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:0;min-height:28px}.refresh:disabled{color:var(--muted);cursor:wait}[hidden]{display:none!important}@media(min-width:800px){.top-layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:30px;align-items:start}.first-section{margin-top:0}.first-section td{padding-top:12px;padding-bottom:12px}.first-section td:first-child{min-width:105px}.screen{aspect-ratio:4/3}}@media(max-width:480px){main{padding:23px 20px 22px}.masthead{font-size:8px;letter-spacing:.1em}header{padding-top:26px}h1{font-size:33px}.deck{font-size:12px}.tags{gap:6px}.tag{font-size:9px}.screen{aspect-ratio:4/3}.actions{gap:8px}.action{flex:1;padding:9px 11px;font-size:11px;gap:9px;white-space:nowrap}h2{font-size:21px}.section-note{font-size:9px}table{font-size:11px}td:first-child{min-width:116px}th{font-size:9px;padding-left:4px;padding-right:4px}td{padding-left:4px;padding-right:4px}.number{font-size:12px}.row-title{font-size:11px}.scope{gap:10px}.scope strong{font-size:20px}.scope span{font-size:9px}}@media(prefers-reduced-motion:no-preference){main{animation:appear .45s ease-out}@keyframes appear{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}}
+    /* The recorded comparison frames are 640 x 240, not a 4:3 camera crop. */
+    .screen{aspect-ratio:8/3}
+  </style>
+</head>
+<body>
+<main>
+  <div class="masthead"><span>FRUITFLY / FIELD NOTES</span><span class="issue">PILOT 001 · LOCAL</span></div>
+  <header>
+    <h1><span>真實場景</span> · <span>第一次驗收</span></h1>
+    <p class="deck">將拍攝場景變成無人機視覺輸入，檢查原模型可唔可以繞過眼前障礙，以及 Flyvis 特徵有冇可讀出嘅遠近資訊。</p>
+    <div class="tags"><span class="tag engine">WebGL 3DGS + MuJoCo</span><span class="tag">靜態場景 · 凍結模型</span><a class="tag" href="/explore">場景與逐次測試回放 ↗</a></div>
+  </header>
+  <div class="statusline" id="statusline" role="status" aria-live="polite"><span class="dot"></span><span id="run-status">正在讀取本輪結果…</span></div>
+
+  <div class="top-layout">
+    <div>
+      <figure class="capture">
+        <div class="capture-head"><span class="label">驗收錄影（回放）</span><span class="smallmono">CAPTURED SCENE / RGB</span></div>
+        <div class="screen">
+          <video id="evaluation-video" src="/evaluation.mp4" controls playsinline preload="metadata" aria-label="本輪避障驗收錄影回放"></video>
+          <div class="media-fallback" id="video-fallback"><b>等待錄影載入</b><span>呢度播放已錄製嘅驗收畫面；即時鏡頭喺下面另外開啟。</span></div>
+        </div>
+        <figcaption class="caption">四組對照各自嘅第一次測試（固定 seed 87000），共四段回放。錄影唔包含全部測試；下表先係完整統計。</figcaption>
+      </figure>
+      <div class="actions"><a class="action primary" href="/explore#trials">逐次軌跡回放 <span aria-hidden="true">↗</span></a><a class="action" href="http://127.0.0.1:8766/" target="_blank" rel="noopener">自由探索場景 <span aria-hidden="true">↗</span></a></div>
+    </div>
+
+    <section class="section first-section" aria-labelledby="avoidance-heading">
+      <div class="section-title"><h2 id="avoidance-heading"><span class="index">01</span>避障驗收</h2><span class="section-note">原策略未作微調</span></div>
+      <p class="verdict" id="avoidance-verdict">等原模型測試完成後，再判斷佢有冇成功到達目標。</p>
+      <div class="table-wrap"><table aria-label="四組避障對照實驗"><thead><tr><th scope="col">控制方式</th><th scope="col">繞過*</th><th scope="col">到達</th><th scope="col">碰撞</th><th scope="col">超時</th><th scope="col">總數</th></tr></thead><tbody id="avoidance-rows"></tbody></table></div>
+      <p class="footnote" id="other-outcomes" hidden></p>
+      <p class="footnote">* 事後補充指標：無代理碰撞並越過物件遠側平面。唔等於成功到達目標，亦唔代表完整場景安全。</p>
+      <p class="footnote">「幾何老師」直接使用障礙幾何，只係對照上限。佢嘅成績唔代表果蠅視覺模型學識避障。</p>
+    </section>
+  </div>
+
+  <section class="section" aria-labelledby="distance-heading">
+    <div class="section-title"><h2 id="distance-heading"><span class="index">02</span>遠近資訊讀出</h2><span class="section-note" id="test-samples">等待獨立測試集</span></div>
+    <p class="readout-lead">喺凍結 Flyvis 後面訓練一個小型距離讀出器，對比只用速度同固定平均值。標籤係<strong>手動擬合碰撞代理嘅表面距離</strong>，唔係量度所得嘅真實深度。</p>
+    <div class="table-wrap"><table aria-label="獨立軌跡測距結果"><thead><tr><th scope="col">讀出器輸入</th><th scope="col">MAE / m</th><th scope="col">RMSE / m</th><th scope="col">近距召回</th></tr></thead><tbody id="distance-rows"></tbody></table></div>
+    <p class="method-line">MAE、RMSE 越低越好 · 近距門檻 0.8 m · 按完整軌跡分開訓練／驗證／測試</p>
+    <p class="footnote">讀得到遠近資訊，唔等於現有避障策略已經識得運用。Flyvis 保留時間狀態；呢個亦唔係單張影像測深實驗。</p>
+    <details><summary>睇測距散點圖</summary><figure><img src="/distance-probe.png" alt="四組讀出器喺獨立測試軌跡嘅預測距離與代理距離散點圖" loading="lazy" data-optional-image><p class="image-missing" hidden>散點圖暫未提供；測距完成後會喺呢度顯示。</p></figure></details>
+  </section>
+
+  <section class="section" aria-labelledby="scope-heading">
+    <div class="section-title"><h2 id="scope-heading"><span class="index">03</span>呢次驗到邊度</h2><span class="section-note">第一輪可重複測試</span></div>
+    <p class="scope-copy">只涵蓋<strong>同一個拍攝場景、單一紅色物件</strong>附近嘅短程避障。碰撞由手動對齊嘅簡化代理判定，未驗證成真實物理安全；亦未測試室外長距離返航或動態 4DGS。</p>
+    <div class="scope"><div><strong>1</strong><span>拍攝場景 / 單一障礙代理</span></div><div><strong>12 s</strong><span>每次避障模擬時限</span></div><div><strong>≈ 3.2 m</strong><span>起點到目標嘅直線距離</span></div></div>
+    <details><summary>核對拍攝物件與碰撞代理</summary><figure><img src="/proxy-overlay.png" alt="拍攝場景內紅色物件與手動擬合碰撞代理嘅對齊核對圖" loading="lazy" data-optional-image><p class="image-missing" hidden>代理核對圖暫未提供。</p><figcaption class="caption">代理係近似幾何，唔係由場景重建得到嘅完整碰撞網格。</figcaption></figure></details>
+  </section>
+  <footer><span id="last-update">只顯示實際報告數據 · 缺項以 — 表示</span><div><button class="refresh" id="refresh" type="button">重新讀取</button> &nbsp;·&nbsp; <a href="/results.json" target="_blank" rel="noopener">原始 JSON</a></div></footer>
+</main>
+<script>
+  'use strict';
+  const avoidanceModes = [
+    ['m4', 'M4 原模型', '即時 Flyvis 特徵'],
+    ['frozen_vision', '凍結視覺', '固定首幀神經特徵'],
+    ['direct_to_goal', '直飛目標', '無視覺避障對照'],
+    ['geometry_teacher', '幾何老師', '使用障礙幾何嘅對照']
+  ];
+  const distanceModes = [
+    ['flyvis_only', 'Flyvis', '神經特徵'],
+    ['flyvis_velocity', 'Flyvis + 速度', '神經特徵與運動資訊'],
+    ['velocity_only', '只用速度', '無視覺對照'],
+    ['mean_distance', '平均距離', '訓練集固定平均值']
+  ];
+  const el = id => document.getElementById(id);
+  const finite = value => typeof value === 'number' && Number.isFinite(value);
+  const count = value => finite(value) && Number.isInteger(value) && value >= 0;
+  const metric = value => finite(value) ? value.toFixed(3) : '—';
+  const percent = value => finite(value) ? (value * 100).toFixed(1) + '%' : '—';
+  let timer = null, busy = false, received = false, complete = false;
+
+  function cell(text, className = '') {
+    const td = document.createElement('td');
+    td.textContent = text;
+    td.className = className;
+    return td;
+  }
+  function nameCell(title, caption) {
+    const td = document.createElement('td');
+    const name = document.createElement('span'); name.className = 'row-title'; name.textContent = title;
+    const detail = document.createElement('span'); detail.className = 'row-caption'; detail.textContent = caption;
+    td.append(name, detail);
+    return td;
+  }
+  function renderAvoidance(avoidance) {
+    const reports = avoidance?.reports || {};
+    const fragment = document.createDocumentFragment();
+    const other = [];
+    for (const [key, title, description] of avoidanceModes) {
+      const report = reports[key];
+      const tr = document.createElement('tr');
+      if (!report) tr.className = 'pending-row';
+      tr.append(nameCell(title, report ? description : '待完成'));
+      tr.append(cell(count(report?.crossed_object_plane_without_collision_count) ? String(report.crossed_object_plane_without_collision_count) : '—', 'number'));
+      const fields = ['success_count', 'collision_count', 'timeout_count', 'total'];
+      fields.forEach((field, i) => tr.append(cell(count(report?.[field]) ? String(report[field]) : '—', 'number ' + (!count(report?.[field]) ? 'missing' : i === 0 ? 'success' : i === 1 ? 'collision' : ''))));
+      if (fields.every(field => count(report?.[field]))) {
+        const remaining = report.total - report.success_count - report.collision_count - report.timeout_count;
+        if (remaining > 0) other.push(title + '：' + remaining + ' 次');
+      }
+      fragment.append(tr);
+    }
+    el('avoidance-rows').replaceChildren(fragment);
+    el('other-outcomes').hidden = other.length === 0;
+    el('other-outcomes').textContent = '其他終止（總數扣除以上三類）：' + other.join('；') + '。';
+    const m4 = reports.m4;
+    if (count(m4?.total) && m4.total > 0 && count(m4.success_count)) {
+      const crossed = m4.crossed_object_plane_without_collision_count;
+      el('avoidance-verdict').textContent = m4.success_count === 0 && count(crossed)
+        ? '原模型有 ' + crossed + ' / ' + m4.total + ' 次無碰撞越過物件*，但 12 秒內到達目標係 0 / ' + m4.total + '。局部繞行同完成導航，要分開睇。'
+        : m4.success_count === 0
+        ? '原模型暫未完成呢個任務：' + m4.total + ' 次測試都未成功到達目標。避開碰撞同完成導航，要分開睇。'
+        : '原模型成功到達目標 ' + m4.success_count + ' / ' + m4.total + ' 次；碰撞及超時情況見下表。';
+      el('avoidance-verdict').classList.toggle('caution', m4.success_count < m4.total);
+    }
+    return avoidanceModes.every(([key]) => count(reports[key]?.total) && reports[key].total > 0);
+  }
+  function renderDistance(distance) {
+    const results = distance?.results || {};
+    const fragment = document.createDocumentFragment();
+    for (const [key, title, description] of distanceModes) {
+      const test = results[key]?.test;
+      const tr = document.createElement('tr');
+      if (!test) tr.className = 'pending-row';
+      tr.append(nameCell(title, test ? description : '待完成'));
+      tr.append(cell(metric(test?.mae_m), 'number'), cell(metric(test?.rmse_m), 'number'), cell(percent(test?.near_recall), 'number'));
+      fragment.append(tr);
+    }
+    el('distance-rows').replaceChildren(fragment);
+    const samples = results.flyvis_only?.test?.samples;
+    const trajectoryIds = distance?.splits?.test?.trajectory_ids;
+    if (count(samples)) el('test-samples').textContent = '測試 · ' + samples + ' 幀' + (Array.isArray(trajectoryIds) ? ' / ' + trajectoryIds.length + ' 軌跡' : '');
+    return distanceModes.every(([key]) => finite(results[key]?.test?.mae_m));
+  }
+  async function refresh() {
+    if (busy) return;
+    busy = true; clearTimeout(timer); el('refresh').disabled = true;
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000);
+    try {
+      const response = await fetch('/results.json', {cache: 'no-store', signal: controller.signal});
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const data = await response.json();
+      if (!data || typeof data !== 'object' || Array.isArray(data)) throw new Error('Invalid results');
+      const avoidanceDone = renderAvoidance(data.avoidance);
+      const distanceDone = renderDistance(data.distance);
+      const status = data.status || {};
+      complete = avoidanceDone && distanceDone && status.phase !== 'error';
+      el('statusline').classList.toggle('error', status.phase === 'error');
+      if (status.phase === 'error') el('run-status').textContent = '本輪遇到錯誤：' + (status.message || '請查看實驗日誌');
+      else if (complete) el('run-status').textContent = '本輪報告已齊備 · 下方係實際驗收結果';
+      else if (typeof status.message === 'string' && status.message) {
+        const progress = count(status.completed) && count(status.total) && status.total > 0 ? '（' + status.completed + '/' + status.total + '）' : '';
+        el('run-status').textContent = status.message + progress + ' · 每 15 秒更新';
+      } else el('run-status').textContent = '等待測試報告 · 每 15 秒更新';
+      const now = new Date().toLocaleTimeString('zh-HK', {hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
+      el('last-update').textContent = '最近讀取 ' + now + ' · 缺項以 — 表示';
+      received = true;
+      if (el('evaluation-video').error) el('evaluation-video').load();
+      document.querySelectorAll('[data-optional-image]').forEach(image => {
+        if (image.hidden) { image.hidden = false; image.src = new URL(image.getAttribute('src').split('?')[0], location.href).pathname + '?t=' + Date.now(); }
+      });
+    } catch (_) {
+      el('statusline').classList.add('error');
+      el('run-status').textContent = received ? '暫時讀取唔到更新；保留上次已收到嘅結果。' : '結果暫未提供；等待本輪實驗寫入報告。';
+      complete = false;
+    } finally {
+      clearTimeout(timeout); busy = false; el('refresh').disabled = false;
+      if (!complete) timer = setTimeout(refresh, 15000);
+    }
+  }
+  el('evaluation-video').addEventListener('loadedmetadata', () => { el('video-fallback').hidden = true; });
+  el('evaluation-video').addEventListener('error', () => {
+    el('video-fallback').hidden = false;
+    el('video-fallback').querySelector('b').textContent = '錄影暫未提供';
+    el('video-fallback').querySelector('span').textContent = '可以先睇下方報告，或者開啟即時鏡頭。';
+  });
+  document.querySelectorAll('[data-optional-image]').forEach(image => {
+    image.addEventListener('error', () => { image.hidden = true; image.nextElementSibling.hidden = false; });
+    image.addEventListener('load', () => { image.hidden = false; image.nextElementSibling.hidden = true; });
+  });
+  el('refresh').addEventListener('click', refresh);
+  renderAvoidance(null); renderDistance(null); refresh();
+</script>
+</body>
+</html>

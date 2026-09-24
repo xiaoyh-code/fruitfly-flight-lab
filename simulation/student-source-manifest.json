@@ -1,0 +1,413 @@
+{
+  "schema": 1,
+  "kind": "runnable_student_sources",
+  "external_assets_downloaded_separately": true,
+  "excluded": "Machine runtimes, private caches, training outputs, source scene scans, Unity editor, publication tooling",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 257,
+      "sha256": "ccc768c5da1b02f873f8745413fe75a7ad1d6bc643ed1a3f43d0ca11d659f565"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4304,
+      "sha256": "cafae1b0bdddbacce9b012f91ffc08be7182eb7e1c7303bbac029c84fc0fca09"
+    },
+    {
+      "path": "dashboard/assets/crazyflie.json",
+      "bytes": 602530,
+      "sha256": "587874f4b02cd31364cb62a5c2380a17d67ca4ec0a21df360e0e3c11ffa783f9"
+    },
+    {
+      "path": "dashboard/explore.html",
+      "bytes": 23339,
+      "sha256": "8f3e9977f3e781a98940257a1c88e5b6f6fe58bc7b0d4aa46a4bcec03fe35043"
+    },
+    {
+      "path": "dashboard/index.html",
+      "bytes": 34135,
+      "sha256": "861fd3c2dd7359a17a4ec8368243d094f3adc570b71aa619a7ceb27c9432c8b2"
+    },
+    {
+      "path": "dashboard/lib/GaussianSplats3D-LICENSE",
+      "bytes": 1078,
+      "sha256": "eaf88512a83fc007481fee3c10b6b6e3dbab64bd6d0d3c64416decf86dbc9440"
+    },
+    {
+      "path": "dashboard/lib/crazyflie-scene.js",
+      "bytes": 9186,
+      "sha256": "a62d781e03433a03c1384002c7b70d3448f6ac56513ef840d6e8277ae6da1204"
+    },
+    {
+      "path": "dashboard/lib/gaussian-splats-3d.module.js",
+      "bytes": 616821,
+      "sha256": "f273394134c9174e49bf42bb4ea0945caaad4fdd63023b8996cc6cd248f52a6b"
+    },
+    {
+      "path": "dashboard/lib/hall-replay.js",
+      "bytes": 20314,
+      "sha256": "b462a6ee45457be50ca22dcbb362fe0fab714a107d80037aa351f5825c4ba5bd"
+    },
+    {
+      "path": "dashboard/lib/public-lab.css",
+      "bytes": 11682,
+      "sha256": "5be4fee985eecfde094429a8873be63a06f078cb70803c5688852bd6abc029a1"
+    },
+    {
+      "path": "dashboard/lib/three-LICENSE",
+      "bytes": 1081,
+      "sha256": "4c40a1ef62450b857c3b2aaf294936304cd552d965fbcd9d32d4c5bcf4ba4454"
+    },
+    {
+      "path": "dashboard/lib/three.module.js",
+      "bytes": 1314681,
+      "sha256": "ce1fa418de16a19495a9f72495580e3015d7745c296d3ce0485897f902ddedfb"
+    },
+    {
+      "path": "dashboard/missions.html",
+      "bytes": 31817,
+      "sha256": "271160334c84b514245dd8d1a39ee7e589614ef6b62b71b3485452c3da83f710"
+    },
+    {
+      "path": "dashboard/public-roadmap.html",
+      "bytes": 7470,
+      "sha256": "28955c88c10d47c66264138c38fdb1852f7259ec601ae703f01355573a2cbca1"
+    },
+    {
+      "path": "dashboard/public-scene.html",
+      "bytes": 11133,
+      "sha256": "8fec1ef102f9d0ab027b75e0d7afad9709b3423281e38a240bec6bbf9a2a2709"
+    },
+    {
+      "path": "dashboard/public-scenes.html",
+      "bytes": 4686,
+      "sha256": "9c608d72ebfa5343d9875961efc0b254d021489c3f4898fac390b257e954b2ac"
+    },
+    {
+      "path": "dashboard/public.html",
+      "bytes": 14448,
+      "sha256": "7a066095b9392452b2535dd39971d512bec46bc84ae984d516f648af59960284"
+    },
+    {
+      "path": "dashboard/realistic-results.html",
+      "bytes": 21174,
+      "sha256": "3749727517fbdcf04bb82d4b135bdb2e5da8ecfe4d4584a9f75c4aabf16a18c0"
+    },
+    {
+      "path": "dashboard/render-bridge.html",
+      "bytes": 9688,
+      "sha256": "a5337e3ed54303d0f4191258d70eccade5eb1cfdad15ae69cb10fcc3e54fbef9"
+    },
+    {
+      "path": "dashboard/scene.html",
+      "bytes": 10366,
+      "sha256": "8931e57e3edfe6bdc901d78ad3040b4c186e741497b254d0a3ad2bf223e34edd"
+    },
+    {
+      "path": "dashboard/student-review.html",
+      "bytes": 16686,
+      "sha256": "61cef77cb03c540998dc04af03b5ee7c15af539d5f903682acc3177efc39e00c"
+    },
+    {
+      "path": "docs/README.en.md",
+      "bytes": 35491,
+      "sha256": "ef6419532f0fd72dff4cd076b07f66e1eff748ddb1c2bcb73b8dce13c8290024"
+    },
+    {
+      "path": "docs/README.zh-Hant.md",
+      "bytes": 33318,
+      "sha256": "939fd040756eabfcc292c254fcacc3a20689e33d2ba14cac3d2aa4c8cd1eac8c"
+    },
+    {
+      "path": "docs/windows-audit.md",
+      "bytes": 4731,
+      "sha256": "da9ab49eebc1d64c44c677ff45311957069ae3c45f6f2fab2911ede678b3bfd5"
+    },
+    {
+      "path": "models/gaussian/LICENSE",
+      "bytes": 20,
+      "sha256": "051f506b90d248574f15694337dbdeae085e610de4472e6acad3222366d47d68"
+    },
+    {
+      "path": "models/gaussian/SOURCE-README.md",
+      "bytes": 327,
+      "sha256": "e898eff37456f25c033e534343cbf3dc7dd142a07f0fe77e04e2ea9451ea4c6a"
+    },
+    {
+      "path": "models/gaussian/provenance.json",
+      "bytes": 447,
+      "sha256": "f78bfd47f8932991572f99e7db4dedd61f4ef56c15544eee1497e8de7615bdf1"
+    },
+    {
+      "path": "requirements-core.txt",
+      "bytes": 213,
+      "sha256": "0ab1c5b19e139edf7feeaf6ec42b00d344677ae8659bf19093ada6cb8ea0fcbe"
+    },
+    {
+      "path": "requirements-vision.txt",
+      "bytes": 189,
+      "sha256": "62b420336ac19aee96469c286011fdd73a344b6e6bfc394cfd37d73016964e98"
+    },
+    {
+      "path": "requirements.in",
+      "bytes": 238,
+      "sha256": "9dadc7c98bbf89bf86db498f7bc80a5706f6765b292c413e04decff9fb023d62"
+    },
+    {
+      "path": "requirements.lock.txt",
+      "bytes": 1835,
+      "sha256": "7da3e82bffd2afbf81036c90fb9fb62ab697e4e019b2fff2b04ddc5fd29a9950"
+    },
+    {
+      "path": "scripts/analyze_gaussian_scene.py",
+      "bytes": 12419,
+      "sha256": "3533f39848dfb719967ae27e71d802da3ef7bb0525583defe9d5b65873630a8a"
+    },
+    {
+      "path": "scripts/benchmark_flyvis.py",
+      "bytes": 5717,
+      "sha256": "9d650df91644d0bd02745ccabf701532d32a27dd85175d9db9711fef47c531f5"
+    },
+    {
+      "path": "scripts/check_flyvis.py",
+      "bytes": 9370,
+      "sha256": "fdc132efca88e525dc0e84f47dff1e6818d2e74a24091d4d88398dfdf8332ea0"
+    },
+    {
+      "path": "scripts/doctor.py",
+      "bytes": 7678,
+      "sha256": "d026e6cfee45e3c5d3c81a4abe864d4e4e1fd87181aceb5b8f92e092199c1c98"
+    },
+    {
+      "path": "scripts/download_drone_model.py",
+      "bytes": 2005,
+      "sha256": "c59b962590079502dbeaf01ffe9371dd141f7149efc665cffbae3122e2eec606"
+    },
+    {
+      "path": "scripts/download_flyvis_models.py",
+      "bytes": 1554,
+      "sha256": "f3f0a04c92ec1e133cb7a5ac902341980b0e08e23cb6c8e234649dfd7acd372d"
+    },
+    {
+      "path": "scripts/download_hall_scene.py",
+      "bytes": 3762,
+      "sha256": "2c23238965722acc41202f3c6d03853459bb68f5fbd0fe684ce51250c434d9fd"
+    },
+    {
+      "path": "scripts/evaluate_realistic_scene.py",
+      "bytes": 10853,
+      "sha256": "64194df9292a7fe102c6f1ebdb0a786635b7224f56033e6d477d54e4fbb7060c"
+    },
+    {
+      "path": "scripts/export_crazyflie_mesh.py",
+      "bytes": 7131,
+      "sha256": "d7f5de270ce80496f989143e8822093b1baef030573f1e6d5c44e587f36ac398"
+    },
+    {
+      "path": "scripts/export_hall_replay.py",
+      "bytes": 13969,
+      "sha256": "1ad2bdda46018eed899008b39be63e80ffef851294a8c4844a64edea96be158d"
+    },
+    {
+      "path": "scripts/export_student_data.py",
+      "bytes": 21133,
+      "sha256": "d8676eeefab59f30b36564c4303678892eef623def213248e09f3069e69b3f3a"
+    },
+    {
+      "path": "scripts/fit_distance_probe.py",
+      "bytes": 12533,
+      "sha256": "bc40b2dda934ffa84739a7d43228c7f1d5211a79c2eed7c173475f62d4f0f31c"
+    },
+    {
+      "path": "scripts/flyvis_example.py",
+      "bytes": 2484,
+      "sha256": "7a24afef30786f238b156141614f3c7dee7020494cd044d9875f0799e91907b0"
+    },
+    {
+      "path": "scripts/inspect_realistic_scene.py",
+      "bytes": 1985,
+      "sha256": "76f72b21f04159f828c81882d9e860c89ea02983d15f5b76b9361b7f7e04bd30"
+    },
+    {
+      "path": "scripts/open_missions.py",
+      "bytes": 1558,
+      "sha256": "dbdc2b2089fc31b6ae2cb9365165c056ddc8995b99b6eff3ba688df909344f36"
+    },
+    {
+      "path": "scripts/open_results.py",
+      "bytes": 1993,
+      "sha256": "7e213512e29482e91f1bb1cdf258d303a9a9a18af669a4d5779edb691aa586f5"
+    },
+    {
+      "path": "scripts/open_scene.py",
+      "bytes": 920,
+      "sha256": "534536b812957f5d5b82b6d3fc9354d1d67a28eb1684b5523df199e16ffd6890"
+    },
+    {
+      "path": "scripts/open_training.py",
+      "bytes": 1019,
+      "sha256": "2a115f77f48123c43345fc238ba020cef5d48dd427aadef720786caced1aac2c"
+    },
+    {
+      "path": "scripts/plot_student_results.py",
+      "bytes": 21678,
+      "sha256": "d7ad6f1a205b0fab3bb1239c55c23589b763cd0b56fa5cbe921b99fc55a2bc1c"
+    },
+    {
+      "path": "scripts/render_hall_observer.py",
+      "bytes": 5886,
+      "sha256": "fa47194a2527759214b2361e2c04c4acd05bf60d9bbbb3d0c83174c728d5c627"
+    },
+    {
+      "path": "scripts/restore_public_evidence.py",
+      "bytes": 2897,
+      "sha256": "dad13ee289d24abda960a7a1298a772340a833062a713eac48d1d75d42ab87bb"
+    },
+    {
+      "path": "scripts/run_demo.py",
+      "bytes": 7262,
+      "sha256": "33997aebb7048137a65a989a08431c124ae7bc25b0fbaac05c21a2695a9f1d2d"
+    },
+    {
+      "path": "scripts/serve_missions.py",
+      "bytes": 8988,
+      "sha256": "3aac61d209f13cecd125518e05f9497e4ec43d93d3ded510320aeca07fd4d221"
+    },
+    {
+      "path": "scripts/serve_render_bridge.py",
+      "bytes": 16704,
+      "sha256": "b4327af0242d499fc17af4972d521d7f0616f1faa28e51be0e30ced7ffee549b"
+    },
+    {
+      "path": "scripts/serve_scene.py",
+      "bytes": 2899,
+      "sha256": "6f0b82beb9e98d4c65bbf316bba7ee1970865ff5967c3c9ed8de25518c987e74"
+    },
+    {
+      "path": "scripts/serve_training.py",
+      "bytes": 5344,
+      "sha256": "a758da184fcb8fcea13a31f35314d27acb04c8a3bf404c0b929e8750b4dd3cae"
+    },
+    {
+      "path": "scripts/setup_student.py",
+      "bytes": 2613,
+      "sha256": "d47cdd76af7b4a7852af82f304e37280910710824d19a4a5432e154d0dee537e"
+    },
+    {
+      "path": "scripts/train_curriculum.py",
+      "bytes": 16353,
+      "sha256": "40f04ad0b8e9408ad4a8217ef1a321d1babb03357db52e7f0190f0e1c7175444"
+    },
+    {
+      "path": "scripts/train_hall.py",
+      "bytes": 26569,
+      "sha256": "cc1ad9e697204f1bbd8863d80a434e28f905c9906dbeca502813a5da200ef2aa"
+    },
+    {
+      "path": "scripts/train_missions.py",
+      "bytes": 17537,
+      "sha256": "7a34861cf302671b68f37b1e5c1fe17025d7ece037f702dac24e822b502ebed7"
+    },
+    {
+      "path": "scripts/train_visual.py",
+      "bytes": 12668,
+      "sha256": "e219b6f0f87205e927e3cee761f2142fd824f067e76291d952400c8b0a809090"
+    },
+    {
+      "path": "scripts/verify_scene_proxy.py",
+      "bytes": 3255,
+      "sha256": "c9245417f954fbd8fb5607852e54cccb8fdd0269f03aa7302784133d85f9cb0d"
+    },
+    {
+      "path": "src/fruitfly_sim/__init__.py",
+      "bytes": 187,
+      "sha256": "b484cfe578d6339c215f6284413594c21696c007872d3925e6cef372358b2328"
+    },
+    {
+      "path": "src/fruitfly_sim/env.py",
+      "bytes": 14537,
+      "sha256": "073fe7532667efe8e5c9749707ad5b8f94c4ecb06d42526961b51a77e1df994d"
+    },
+    {
+      "path": "src/fruitfly_sim/flyvis_features.py",
+      "bytes": 6632,
+      "sha256": "7a2a17e5ec5af1918556c52c32468499d77a7d6f65551474da98939357b53c52"
+    },
+    {
+      "path": "src/fruitfly_sim/learning_env.py",
+      "bytes": 11321,
+      "sha256": "a216acdffe426c5efe27de4ded34f87fd881a1ffcf8f336737395aebccc0b721"
+    },
+    {
+      "path": "src/fruitfly_sim/mission_env.py",
+      "bytes": 22405,
+      "sha256": "280eef8914dc41184cca8e7a29f44f404af13b69528503edfeeffb6dbf1f3e14"
+    },
+    {
+      "path": "src/fruitfly_sim/observer_view.py",
+      "bytes": 3915,
+      "sha256": "1d1c9afc5d46a5884c41b51ef6cd1c1e10daf9cb2aba7239587c83d4aa112eda"
+    },
+    {
+      "path": "src/fruitfly_sim/splat_env.py",
+      "bytes": 4446,
+      "sha256": "67a1ad49bc3254ba62f9bf30a71744d478b674c7ce0be89135dbd69fa779352a"
+    },
+    {
+      "path": "src/fruitfly_sim/unity_renderer.py",
+      "bytes": 4191,
+      "sha256": "d7ee3cb8ecbfcf41f3c61b38dcce4a8c9b0113beedf970a064aba8dc4dda854c"
+    },
+    {
+      "path": "src/fruitfly_sim/visual_env.py",
+      "bytes": 3729,
+      "sha256": "251a359b3e33350ddacdd496111dfbae3db7102bd8e0f027db6bca7852818b58"
+    },
+    {
+      "path": "tests/test_distance_probe.py",
+      "bytes": 2456,
+      "sha256": "5ea3c0fc6f8841deddcb32a3ad8f7ff5dd749eff6ac901bb69f90b6bc00b74e8"
+    },
+    {
+      "path": "tests/test_env.py",
+      "bytes": 3035,
+      "sha256": "b9ab52eba8014a629d3cb35f0d159ef542ad3e056c44dc5918e0e8b55d2c49c9"
+    },
+    {
+      "path": "tests/test_hall_replay.py",
+      "bytes": 7661,
+      "sha256": "09678a8d7b62095a9f5178b7e779da16f07ffd00962a32f58c0e7f1f81bca9f5"
+    },
+    {
+      "path": "tests/test_learning_env.py",
+      "bytes": 1880,
+      "sha256": "db0d686676e0ffe031595ca87d8944368f51569e276080ddf487bf0ab9e576a6"
+    },
+    {
+      "path": "tests/test_mission_env.py",
+      "bytes": 5894,
+      "sha256": "9d3bdb94b8d390360a52afbbdb0739b6f7c736cb7bdbecebea9fe3cd12502895"
+    },
+    {
+      "path": "tests/test_render_bridge.py",
+      "bytes": 4661,
+      "sha256": "20e1f742e310f237ca16ead6e4496be4b5134f9dfa0d2eb27e2be44cc362c205"
+    },
+    {
+      "path": "tests/test_student_data.py",
+      "bytes": 8788,
+      "sha256": "4f80dd4957dc5ea8f04201809b83d640ef7c243d487e13288ca931aa4451fc63"
+    },
+    {
+      "path": "tests/test_student_startup.py",
+      "bytes": 2515,
+      "sha256": "bd901b0a408a66ab1e925ba48801595003fcb60a229552ca038f2c76460321a4"
+    },
+    {
+      "path": "tests/test_unity_renderer.py",
+      "bytes": 2139,
+      "sha256": "ae1f8ea66fb03b79e5e5dd756674955fc9535f17a528b58f3a3b8265a8a57254"
+    }
+  ]
+}

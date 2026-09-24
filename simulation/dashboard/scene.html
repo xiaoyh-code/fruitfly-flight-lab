@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FruitFly — 3DGS 場景庫</title>
+<style>
+:root{color-scheme:dark;--ink:#e9ede4;--muted:#aeb7ac;--lime:#d5f58a;--line:#ffffff26}*{box-sizing:border-box}body{margin:0;background:#151a17;color:var(--ink);font-family:"Avenir Next","PingFang TC",sans-serif;overflow:hidden}#scene{position:absolute;inset:0}header{position:absolute;top:28px;left:32px;pointer-events:none;text-shadow:0 2px 16px #000;max-width:calc(100% - 60px)}.eyebrow{font-size:11px;letter-spacing:.24em;color:var(--lime);font-weight:600}h1{font-size:30px;font-weight:500;letter-spacing:-.04em;margin:10px 0 4px}header p{font-size:12px;margin:0;color:#dbe3d4}.panel{position:absolute;bottom:24px;left:24px;right:24px;background:#101814e8;border:1px solid var(--line);backdrop-filter:blur(15px);display:flex;align-items:center;gap:22px;padding:17px 22px;border-radius:4px}.stat{min-width:100px}.stat b{display:block;font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}.stat small{font-size:10px;color:var(--muted);letter-spacing:.07em}.divider{height:36px;border-left:1px solid var(--line)}.controls{display:flex;gap:7px;flex-wrap:wrap}button{font:inherit;font-size:12px;border:1px solid #ffffff35;color:var(--ink);padding:10px 14px;background:#ffffff05;cursor:pointer;border-radius:2px}button:hover,button:focus-visible{background:var(--lime);color:#172018;border-color:var(--lime)}button:disabled{opacity:.5;cursor:wait}.help{margin-left:auto;text-align:right;font-size:11px;line-height:1.8;color:var(--muted)}#status{position:absolute;top:28px;right:28px;background:#101814db;border:1px solid var(--line);font-size:11px;padding:10px 14px;max-width:380px;line-height:1.6}#status.ready:before{content:'● ';color:var(--lime)}#status.error{color:#ffbfa2}.note{position:absolute;bottom:118px;left:32px;color:#dbe3d4;text-shadow:0 1px 8px #000;font-size:11px;max-width:560px}.note a{color:inherit}.cross{position:absolute;left:50%;top:50%;width:8px;height:8px;border:1px solid #ffffff60;border-radius:50%;pointer-events:none}#coordinates{font-family:Menlo,monospace;font-size:10px;color:var(--muted)}@media(max-width:760px){header{top:20px;left:20px}h1{font-size:25px}#status{top:108px;left:20px;right:auto}.panel{left:12px;right:12px;bottom:12px;gap:12px;padding:14px;flex-wrap:wrap}.stat{min-width:80px}.help{display:none}.note{bottom:168px;left:20px;font-size:10px}.divider{display:none}}
+</style>
+<style>
+#status{position:static;display:inline-block;margin-top:8px}.scene-picker{margin-top:14px;pointer-events:auto;display:flex;gap:10px;align-items:center;font-size:11px}.scene-picker select{font:inherit;color:var(--ink);background:#162119;border:1px solid #ffffff50;padding:8px;max-width:250px}.scene-picker a{color:var(--lime);font-size:11px}[hidden]{display:none!important}.scene-picker{flex-wrap:wrap}.scene-picker select:focus-visible{outline:2px solid var(--lime)}@media(max-width:760px){#status{top:150px;font-size:10px}.note{max-width:calc(100% - 40px)}.scene-picker{flex-wrap:wrap;gap:8px}.panel{gap:8px}.controls button{padding:8px 10px}.stat b{font-size:16px}.stat{min-width:65px}.note{bottom:172px}}
+</style>
+<script type="importmap">{"imports":{"three":"/lib/three.module.js","gaussian":"/lib/gaussian-splats-3d.module.js"}}</script>
+</head><body>
+<main id="scene" aria-label="可拖動及縮放嘅 3D Gaussian Splatting 場景"></main>
+<header><div class="eyebrow">FRUITFLY / SCENE LIBRARY</div><h1 id="scene-title">飛入真實實驗室。</h1><p id="scene-subtitle">TUM Flight Hall · 真實掃描 · 靜態 3D Gaussian Splatting</p><div class="scene-picker"><label for="scene-select">切換場景</label><select id="scene-select"><option value="hall">飛行實驗室 · 已有測試</option><option value="dajing">Dajing Middle School · 新增</option><option value="sakura">櫻花樹 · 新增預覽</option><option value="fox">狐狸雕像 · 新增預覽</option><option value="park">公園 · 新增預覽</option></select><span id="quality-picker" hidden><label for="quality-select">畫質</label> <select id="quality-select"></select></span><button id="fullscreen" type="button">全螢幕 ↗</button><a href="http://127.0.0.1:8769/">工廠訓練 ↗</a></div><div id="status" role="status">正在載入本機場景…</div></header><div class="cross"></div>
+<div class="note"><span id="scene-note">目前係場景預覽，尚未代表果蠅已學識測距或避障。</span><br><a href="http://127.0.0.1:8768/explore">場景與逐次測試回放 ↗</a> · <a id="source" href="https://huggingface.co/datasets/amacati/splats" target="_blank" rel="noreferrer">場景來源：TUM LSY / amacati</a> · <span id="file-label">robot_hall.ply</span></div>
+<section class="panel" aria-label="場景控制">
+<div class="stat"><b id="splat-count">98,372</b><small>GAUSSIANS</small></div><div class="stat"><b id="file-size">6.69 MB</b><small id="asset-size-label">ORIGINAL PLY</small></div><div class="divider"></div>
+<div class="controls" id="views"></div>
+<div class="help">左鍵拖動旋轉 · 右鍵拖動平移 · 滾輪縮放<br><span id="coordinates">相機位置 —</span></div>
+</section>
+<script type="module">
+import * as GS from 'gaussian';
+import {addCrazyflie} from './lib/crazyflie-scene.js';
+import {addHallReplay} from './lib/hall-replay.js';
+const status=document.getElementById('status'), el=id=>document.getElementById(id);
+const hallViews=[[[0,0,1.5],[10,0,1.4]],[[0,0,1.5],[-10,0,1.4]],[[6,1,1.5],[10,1,1.3]],[[15,-13,13],[0,0,0]],
+ [[13.55,-3.15,1.2],[15.15,-2.95,1]],[[15.15,-4.45,1.2],[15.15,-2.95,1]],
+ [[16.75,-3.15,1.2],[15.15,-2.95,1]],[[15.15,-1.45,1.2],[15.15,-2.95,1]]];
+const params=new URLSearchParams(location.search), sceneId=params.get('scene')||'hall';
+const replayMode=sceneId==='hall'&&params.get('replay')==='1';
+el('scene-select').value=sceneId;
+el('fullscreen').onclick=()=>document.documentElement.requestFullscreen?.().catch(()=>{status.textContent='全螢幕暫時未能開啟';});
+el('quality-select').onchange=()=>{const next=new URL(location.href);next.searchParams.set('quality',el('quality-select').value);location.href=next.href;};
+el('scene-select').onchange=()=>{const next=new URL(location.href);next.search='';next.searchParams.set('scene',el('scene-select').value);location.href=next.href;};
+try{
+ let entry=null,activeVariant=null,cameraUp=[0,0,1],asset='/scene/robot_hall.ply', views=hallViews.map(([position,target],i)=>({position,target,label:['中央視角','另一方向','近距離','全景俯視','測試障礙','障礙側面 A','障礙後方','障礙側面 B'][i]}));
+ if(sceneId!=='hall'){
+  const response=await fetch('/library/manifest.json',{cache:'no-store'});if(!response.ok)throw Error('場景清單未準備好');
+  const manifest=await response.json();entry=manifest.scenes.find(scene=>scene.id===sceneId);
+  if(!entry)throw Error('未知場景，請用選單揀選');
+  if(entry.variants?.length){
+   activeVariant=entry.variants.find(variant=>variant.id===params.get('quality'))||entry.variants[0];
+   el('quality-picker').hidden=false;el('quality-select').replaceChildren(...entry.variants.map(variant=>new Option(variant.label,variant.id)));el('quality-select').value=activeVariant.id;
+  }
+  const displayed=activeVariant||entry;
+  views=entry.views;cameraUp=entry.camera_up;asset='/library/'+encodeURIComponent(displayed.file);
+  el('scene-title').textContent=entry.label+'。';el('scene-subtitle').textContent=(entry.attribution||'Wakufactory / Scaniverse')+' · '+entry.licence+' · 靜態 3DGS';
+  el('splat-count').textContent=displayed.splats.toLocaleString();el('file-size').textContent=(displayed.bytes/1e6).toFixed(1)+' MB';
+  el('file-label').textContent=displayed.file;el('source').href=entry.source_url;el('source').textContent='來源：'+(entry.attribution||'Wakufactory')+' · '+entry.licence;
+  if(activeVariant)el('asset-size-label').textContent='LOCAL PREVIEW PLY';
+  el('scene-note').textContent=entry.preview_note||'新增實景預覽：比例及碰撞幾何尚未校準，未用作訓練／驗收。相機座標係原檔單位。';
+ }
+ const requestedView=Number(params.get('view')??0), initialView=Number.isInteger(requestedView)&&requestedView>=0&&requestedView<views.length?requestedView:0;
+ const buttons=views.slice(0,sceneId==='hall'?5:views.length).map((view,index)=>{const button=document.createElement('button');button.dataset.view=index;button.textContent=view.label;button.disabled=true;return button;});el('views').replaceChildren(...buttons);
+ const viewer=new GS.Viewer({rootElement:el('scene'),cameraUp,initialCameraPosition:views[initialView].position,initialCameraLookAt:views[initialView].target,sharedMemoryForWorkers:false,gpuAcceleratedSort:false,integerBasedSort:false,sphericalHarmonicsDegree:0,antialiased:true,ignoreDevicePixelRatio:true,renderMode:GS.RenderMode.OnChange});
+ await viewer.addSplatScene(asset,{splatAlphaRemovalThreshold:1,showLoadingUI:true,progressiveLoad:false}).promise;
+ if(sceneId!=='hall'){viewer.camera.near=.001;viewer.camera.updateProjectionMatrix();}
+ viewer.start(); status.textContent='場景已載入 · '+(activeVariant?activeVariant.label:'本機互動預覽');status.className='ready';
+ try{const drone=await addCrazyflie({viewer,sceneId,cameraUp,focusOnLoad:!params.has('view')&&!replayMode});if(replayMode){await addHallReplay({viewer,drone});status.textContent='工廠場景已載入 · 本機記錄回放';}}catch(error){status.textContent='場景已載入；'+error.message;console.error(error)}
+ document.querySelectorAll('[data-view]').forEach(button=>{button.disabled=false;button.onclick=()=>{const {position,target}=views[Number(button.dataset.view)];viewer.camera.position.set(...position);viewer.camera.up.set(...cameraUp);viewer.camera.lookAt(...target);viewer.controls.target.set(...target);viewer.controls.update();const next=new URL(location.href);next.searchParams.set('view',button.dataset.view);history.replaceState(null,'',next);};});
+ setInterval(()=>{const p=viewer.camera.position;document.getElementById('coordinates').textContent=`相機 xyz: ${p.x.toFixed(2)}, ${p.y.toFixed(2)}, ${p.z.toFixed(2)}`;},500);
+}catch(error){status.className='error';status.textContent='載入失敗：'+error.message;console.error(error);}
+</script></body></html>

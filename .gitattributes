@@ -1,0 +1,6 @@
+# Preserve published evidence bytes: its hashes cover original line endings.
+# Maintain portable source text consistently on Windows checkouts.
+simulation/** text eol=lf
+.github/** text eol=lf
+*.md text eol=lf
+site/** -text

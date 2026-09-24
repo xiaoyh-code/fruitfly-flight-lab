@@ -1,0 +1,10 @@
+{
+  "source_url": "https://huggingface.co/datasets/amacati/splats/resolve/main/robot_hall.ply",
+  "source_docs": "https://learnsyslab.github.io/crazyflow/user-guide/splats/",
+  "bytes": 6689711,
+  "sha256": "ac883665efc87f84174f0a7d385277299da39e49df7c3838d78dad860ddf2681",
+  "gaussians": 98372,
+  "license": "all rights reserved; see LICENSE",
+  "downloaded": "2026-09-21",
+  "unity_renderer_commit": "2c6fed37da67a217367261fcfcd3316d34c73e76"
+}

@@ -1,0 +1,36 @@
+name: Windows student simulation
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['simulation/**', '.github/workflows/windows-simulation.yml']
+permissions:
+  contents: read
+jobs:
+  windows-python312:
+    runs-on: windows-latest
+    timeout-minutes: 25
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12.10'
+          cache: pip
+          cache-dependency-path: simulation/requirements*.txt
+      - name: Install the student vision profile and verified assets
+        working-directory: simulation
+        run: python -X utf8 scripts/setup_student.py --profile vision
+      - name: Restore published source models
+        working-directory: simulation
+        run: .\.venv\Scripts\python.exe -X utf8 scripts/restore_public_evidence.py
+      - name: Verify physics, dependencies and actual Flyvis inference
+        working-directory: simulation
+        run: .\.venv\Scripts\python.exe -X utf8 scripts/doctor.py --flyvis
+      - name: Run regression tests (no GPU required)
+        working-directory: simulation
+        run: .\.venv\Scripts\python.exe -X utf8 -m pytest -q tests
+      - name: Verify the waypoint physics demonstration
+        working-directory: simulation
+        run: .\.venv\Scripts\python.exe -X utf8 scripts/run_demo.py --headless

@@ -1,0 +1,15 @@
+gymnasium==1.3.0
+mujoco==3.13.0
+flyvis==1.2.0
+torch==2.14.0
+stable-baselines3==2.9.0
+torchvision
+numpy
+opencv-python
+imageio[ffmpeg]
+pillow
+pytest
+# Compatibility with published Flyvis model/data APIs.
+numpy<2
+pandas<3
+opencv-python<4.12

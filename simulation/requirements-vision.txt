@@ -1,0 +1,3 @@
+# The recorded experiment's full environment; resolved for CPython 3.12 x64 Windows.
+# Install plain flyvis, NOT flyvis[pretrained] (that extra pins an old numba).
+-r requirements.lock.txt

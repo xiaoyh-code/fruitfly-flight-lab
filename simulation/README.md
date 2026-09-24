@@ -6,9 +6,9 @@ A student research environment: **Gymnasium + MuJoCo + frozen Flyvis vision + a 
 
 ## Read the complete guide / 閱讀完整指南
 
-- **[繁體中文：逐步安裝、Flyvis 呼叫、訓練與故障排除](simulation/docs/README.zh-Hant.md)**
-- **[English: installation, Flyvis API, training and troubleshooting](simulation/docs/README.en.md)**
-- [Windows audit and verification scope / Windows 檢查及驗證範圍](simulation/docs/windows-audit.md)
+- **[繁體中文：逐步安裝、Flyvis 呼叫、訓練與故障排除](docs/README.zh-Hant.md)**
+- **[English: installation, Flyvis API, training and troubleshooting](docs/README.en.md)**
+- [Windows audit and verification scope / Windows 檢查及驗證範圍](docs/windows-audit.md)
 
 The two guides have matching sections, explanations and identical commands/code examples. Start at step 1; run one command at a time. Use **64-bit Python 3.12**, with **3.12.10** as the recorded reference version.
 
