@@ -111,18 +111,18 @@
     },
     {
       "path": "docs/README.en.md",
-      "bytes": 35491,
-      "sha256": "ef6419532f0fd72dff4cd076b07f66e1eff748ddb1c2bcb73b8dce13c8290024"
+      "bytes": 36263,
+      "sha256": "9a08ef9a3dd884f6d0d435cc789f230f68b1653690af37f8a58295dd3a2fd183"
     },
     {
       "path": "docs/README.zh-Hant.md",
-      "bytes": 33318,
-      "sha256": "939fd040756eabfcc292c254fcacc3a20689e33d2ba14cac3d2aa4c8cd1eac8c"
+      "bytes": 34093,
+      "sha256": "668ac45fdf84a68f0e3682f2597bd55d1466c4d3f4eace830a6948fc6e92aafc"
     },
     {
       "path": "docs/windows-audit.md",
-      "bytes": 4731,
-      "sha256": "da9ab49eebc1d64c44c677ff45311957069ae3c45f6f2fab2911ede678b3bfd5"
+      "bytes": 4987,
+      "sha256": "c5b982ec84d075ab5a0f4b9d270d63b582191147c87477f3e2900eb6f93c8723"
     },
     {
       "path": "models/gaussian/LICENSE",
@@ -171,8 +171,8 @@
     },
     {
       "path": "scripts/check_flyvis.py",
-      "bytes": 9370,
-      "sha256": "fdc132efca88e525dc0e84f47dff1e6818d2e74a24091d4d88398dfdf8332ea0"
+      "bytes": 9514,
+      "sha256": "6fb9b4eb9eddfce5afb3dcd0b68ce0c4013318e2b937eac428480d644c4143ab"
     },
     {
       "path": "scripts/doctor.py",
@@ -330,9 +330,14 @@
       "sha256": "073fe7532667efe8e5c9749707ad5b8f94c4ecb06d42526961b51a77e1df994d"
     },
     {
+      "path": "src/fruitfly_sim/flyvis_compat.py",
+      "bytes": 1782,
+      "sha256": "2bd55095c0e93eac50d1b51261dff6b9d0f5af8b45ba174751fa9f703e4dbbd4"
+    },
+    {
       "path": "src/fruitfly_sim/flyvis_features.py",
-      "bytes": 6632,
-      "sha256": "7a2a17e5ec5af1918556c52c32468499d77a7d6f65551474da98939357b53c52"
+      "bytes": 6723,
+      "sha256": "ce7865c507b20759f37127fd06b7a1aac7d098270c9f432c1c53ddd6f040c289"
     },
     {
       "path": "src/fruitfly_sim/learning_env.py",
@@ -401,8 +406,8 @@
     },
     {
       "path": "tests/test_student_startup.py",
-      "bytes": 2515,
-      "sha256": "bd901b0a408a66ab1e925ba48801595003fcb60a229552ca038f2c76460321a4"
+      "bytes": 3602,
+      "sha256": "aed79d74eb6671d85886ef3a5def7d462f9018d2fdb1783c2ea77d23f7693735"
     },
     {
       "path": "tests/test_unity_renderer.py",

@@ -54,3 +54,27 @@ def test_cpu_extractor_recovers_from_an_upstream_cuda_default(monkeypatch):
     extractor = FlyvisFeatureExtractor()
     values = extractor.transform(np.full((240, 320, 3), 128, dtype=np.uint8))
     assert values.shape == (72,) and np.isfinite(values).all()
+
+
+def test_cache_writer_creates_and_replaces_arrays_without_unlinking_open_files(tmp_path):
+    import h5py
+    import numpy as np
+    from datamate.io import H5Reader
+    from fruitfly_sim.flyvis_compat import write_cache_array
+    path = tmp_path / 'nested/cache.h5'
+    for values in (np.array([b'T4a', b'T5a']), np.arange(6, dtype=np.float32).reshape(2, 3),
+                   np.array(2, dtype=np.int64), np.empty((0, 2), dtype=np.float64)):
+        write_cache_array(path, values)
+        reader = H5Reader(path)
+        np.testing.assert_array_equal(reader[()], values)
+        assert reader.dtype == values.dtype
+        assert reader.shape == values.shape
+        with h5py.File(path, mode='r', swmr=True) as stream:
+            assert stream.swmr_mode
+    original = path.read_bytes()
+    with pytest.raises(TypeError):
+        write_cache_array(path, np.array([object()], dtype=object))
+    assert path.read_bytes() == original
+    assert not list(path.parent.glob('.flyvis-*'))
+    # On Windows this is also a regression check that no writer handle leaked.
+    path.unlink()

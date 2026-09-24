@@ -10,11 +10,13 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import sys
 from pathlib import Path
 import time
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'src'))
 
 
 def main() -> None:
@@ -43,6 +45,8 @@ def main() -> None:
 
     torch.set_num_threads(4)
     torch.set_num_interop_threads(1)
+    from fruitfly_sim.flyvis_compat import configure_flyvis_cache
+    configure_flyvis_cache()
     import flyvis
     from flyvis.network import initialization
     from flyvis.datasets.rendering import BoxEye

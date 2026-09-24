@@ -211,6 +211,8 @@ for frame_index in range(10):
 
 輸入必須是形狀為 `(height, width, 3)` 的 RGB `uint8` 陣列。OpenCV 通常讀取 BGR；傳入 OpenCV 影格前要先由 BGR 轉成 RGB。封裝程式會把圖像轉成灰階、裁剪中央正方形、用官方 `BoxEye` 產生 **721 個視網膜元素**，再把 T4a–d / T5a–d 的反應整合成 **72 個數值**。它們是視覺活動特徵，並非 72 個以米為單位的距離。
 
+在 Windows，包裝器會在建立神經連接快取前，自動套用 `src/fruitfly_sim/flyvis_compat.py`。它修正鎖定版本 Datamate 1.0.0 在 HDF5 檔案仍開啟時嘗試刪除它的問題（WinError 32），模型權重及陣列數值保持不變。這是已知的[上游修正](https://github.com/flyvis/datamate/commit/3b9792c3c90fb29d741f8185c7aca912aa0c0942)。請使用本專案包裝器／例子；直接呼叫 `flyvis.NetworkView` 會略過這個相容處理。
+
 封裝程式載入 `flyvis.NetworkView(model_dir).init_network()`、呼叫 `eval()` 及 `requires_grad_(False)`，並在影格之間保留神經狀態。請在**每個 episode 之間**呼叫 `reset()`，不要在每張圖像之前重設；逐幀重設會破壞預期的時間序列。每次相機更新代表 0.1 秒模擬時間，內部使用五個各 0.02 秒的神經子步。封裝程式使用 CPU 推論。
 
 可選的獨立視覺反應檢查：
@@ -404,6 +406,7 @@ py -3.12 -X utf8 -m http.server 8780 --bind 127.0.0.1 --directory site
 | `Connection refused` | 相機伺服器沒有運行，或 port 錯誤 | 啟動 Terminal A；兩個指令都使用同一個 `8770` port。 |
 | 伺服器已開啟，但相機請求 timeout | 相機分頁關閉、未就緒、休眠，或資產載入失敗 | 開啟 `/bridge` 並等待就緒，保持分頁可用及電腦不睡眠，閱讀錯誤。工廠訓練不會改用假的替代圖像。 |
 | WinError 10048 / address already in use | 另一個伺服器已佔用 port | 使用已啟動的正確伺服器，或在其 terminal 按 `Ctrl+C` 停止；更改相機 port 時要同步更改伺服器及訓練指令。 |
+| 初始化 Flyvis 時出現提及 `unique_cell_types.h5` 的 `WinError 32` | 舊專案程式仍使用有問題的 Datamate 1.0.0 快取寫入方式 | 用 `git pull` 更新，再使用本專案 Flyvis 包裝器／例子，它會自動套用 Windows 相容處理；毋須更改模型權重。 |
 | `PermissionError` | 目錄權限、同步，或另一程序佔用檔案 | 關閉相關讀寫程式，並使用學校批准、有寫入權限的本機目錄。 |
 | `UnicodeDecodeError` 或中文亂碼 | Windows 預設文字編碼不同 | 使用指令中的 `-X utf8`；修改程式及 JSON 時以 UTF-8 保存。 |
 | 下載 checksum 不符 | 下載不完整、收到登入／proxy 頁而非資產，或上游檔案改變 | 停下來檢查來源及網絡，不要移除 checksum 驗證。 |

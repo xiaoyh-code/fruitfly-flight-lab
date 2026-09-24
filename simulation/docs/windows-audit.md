@@ -11,6 +11,7 @@ Audit date / 檢查日期: 2026-09-24. Target / 對象: Windows x64, CPython 3.1
 | Flyvis code confused with pretrained weights / 套件與權重混淆 | Separate checksum-verified weight download and runnable RGB example / 權重獨立校驗下載，提供 RGB 呼叫例子 |
 | Missing Hall checkpoint/scene/browser bridge / 缺少工廠模型、場景或相機分頁 | Verified restoration of public action heads, author-source scene downloader, three-terminal tutorial / 校驗恢復公開決策模型、作者來源場景下載及三個終端機教學 |
 | Historical snapshot appeared runnable / 歷史程式快照容易被當成安裝包 | Root README directs students to `simulation/` / 根 README 指向 `simulation/` |
+| Native Windows Flyvis cache creation failed with WinError 32 / Windows 建立 Flyvis 快取時失敗 | Added a Datamate 1.0.0 adapter that closes HDF5 before replacement; preserves weights / 加入關閉檔案後才替換的相容處理，權重不變 |
 
 ## Verification scope / 驗證範圍
 

@@ -211,6 +211,8 @@ Expected checkpoint: ten lines print a `(72,)` shape and finite numbers. The fir
 
 The input must be an RGB `uint8` array with shape `(height, width, 3)`. OpenCV usually reads BGR; convert BGR to RGB before passing an OpenCV frame. The wrapper converts the image to grayscale, crops the center square, uses the official `BoxEye` to create **721 retinal elements**, and pools the T4a–d / T5a–d responses into **72 numbers**. They are visual activity features, not 72 distances in meters.
 
+On Windows, the wrapper automatically applies `src/fruitfly_sim/flyvis_compat.py` before building the connectome. It fixes the pinned Datamate 1.0.0 cache writer leaving an HDF5 file open before deleting it (WinError 32), while preserving model weights and array values. This is a known [upstream fix](https://github.com/flyvis/datamate/commit/3b9792c3c90fb29d741f8185c7aca912aa0c0942). Use the project wrapper/example; a bare `flyvis.NetworkView` call bypasses this adapter.
+
 The wrapper loads `flyvis.NetworkView(model_dir).init_network()`, calls `eval()` and `requires_grad_(False)`, and retains neural state between frames. Call `reset()` **between episodes**, not before every image; resetting every frame destroys the intended temporal sequence. Each camera update represents 0.1 simulated seconds, using five neural substeps of 0.02 seconds. The wrapper uses CPU inference.
 
 Optional independent visual-response checks:
@@ -404,6 +406,7 @@ Read the stage options before running a curriculum. Do not combine a PPO result,
 | `Connection refused` | Camera server is not running or wrong port | Start Terminal A; use the same `8770` port in both commands. |
 | Camera request timeout while the server is running | Camera tab closed, not ready, suspended, or failed to load its asset | Open `/bridge`, wait for readiness, keep the tab available and computer awake, and read its error. The Hall trainer has no fake-image fallback. |
 | WinError 10048 / address already in use | Another server already occupies the port | Reuse the intended server or stop that terminal with `Ctrl+C`; if changing a camera port, change both the server and trainer. |
+| `WinError 32` mentioning `unique_cell_types.h5` during Flyvis initialization | Older project code with the Datamate 1.0.0 cache writer bug | Update with `git pull` and use the project Flyvis wrapper/example, which applies the Windows adapter automatically. No model-weight change is needed. |
 | `PermissionError` | Folder permissions, synchronization, or another process holding the file | Close the relevant reader/writer and use a school-approved writable local folder. |
 | `UnicodeDecodeError` or garbled Chinese | Different default Windows text encoding | Use `-X utf8` in the exact commands. Save edited scripts and JSON as UTF-8. |
 | Download checksum mismatch | Incomplete download, login/proxy page instead of the asset, or changed upstream file | Stop and check the source/network. Do not remove the checksum check. |

@@ -37,6 +37,8 @@ class FlyvisFeatureExtractor:
         os.environ.setdefault("NUMBA_CACHE_DIR", str(ROOT / ".cache" / "numba"))
         import torch
         torch.set_num_threads(cpu_threads)
+        from .flyvis_compat import configure_flyvis_cache
+        configure_flyvis_cache()
         import flyvis
         from flyvis.network import initialization
         from flyvis.datasets.rendering import BoxEye
